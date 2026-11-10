@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BORDERLINE — Joint Investigation Archive</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=Oswald:wght@500;600;700&display=swap');
+:root{--ink:#121820;--paper:#edf0ef;--paper2:#dce1e1;--red:#d12632;--muted:#68737c;--line:#aeb8bd;--night:#0b1118;--olive:#5c6972;--mono:'DM Mono',monospace;--display:'Oswald',sans-serif;--body:'IBM Plex Sans KR',sans-serif}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#101617;color:var(--ink);font-family:var(--body);font-size:14px}.shell{max-width:1440px;margin:auto;background:var(--paper);min-height:100vh;overflow:hidden;box-shadow:0 0 90px #0008}.topline{height:42px;background:#0d1314;color:#b5b6ae;display:flex;justify-content:space-between;align-items:center;padding:0 5vw;font:10px var(--mono);letter-spacing:.11em}.topline .live{color:#d27668}.cover{position:relative;min-height:610px;background:#182022;color:#e9e5d9;padding:54px 7vw 62px;overflow:hidden}.cover:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent calc(50% - 1px),#a53c32 50%,transparent calc(50% + 1px)),linear-gradient(0deg,transparent 0%,#101617dd 100%);opacity:.85}.cover:after{content:"BUSAN PORT / HAKATA / SECURE CHANNEL 01";position:absolute;bottom:29px;left:7vw;font:10px var(--mono);letter-spacing:.16em;color:#8a908c}.cover>*{position:relative}.cover-head{display:flex;justify-content:space-between;align-items:flex-start;font:10px var(--mono);letter-spacing:.16em;color:#a7aaa2;text-transform:uppercase}.seal{border:1px solid #a53c32;color:#e7a59a;padding:8px 12px;transform:rotate(-4deg);font-size:11px;letter-spacing:.2em}.cover-main{max-width:700px;margin-top:118px}.eyebrow{font:11px var(--mono);letter-spacing:.25em;color:#d27668;text-transform:uppercase}.title{font:clamp(76px,13vw,174px)/.82 var(--display);letter-spacing:-.035em;margin:17px 0 20px}.title span{color:#b64b40}.subtitle{font:500 15px/1.9 var(--body);color:#c5c5bb;max-width:520px}.cover-meta{display:flex;gap:40px;margin-top:48px;padding-top:17px;border-top:1px solid #5b6260;max-width:660px}.cover-meta div{display:grid;gap:6px}.cover-meta small{font:9px var(--mono);color:#92978f;letter-spacing:.12em}.cover-meta b{font:12px var(--mono);font-weight:400;letter-spacing:.04em}.cover-side{position:absolute;right:7vw;top:46%;width:220px;border-left:1px solid #626865;padding-left:17px;font:10px/1.9 var(--mono);color:#aeb1a9}.cover-side b{display:block;color:#d5d0c4;font-weight:400;font-size:12px;letter-spacing:.08em;margin-bottom:5px}.navigation{display:flex;gap:0;border-bottom:1px solid var(--line);background:#dcd7ca;padding:0 7vw;overflow:auto}.navigation a{color:var(--ink);text-decoration:none;padding:16px 24px 14px 0;margin-right:25px;font:10px var(--mono);letter-spacing:.12em;white-space:nowrap}.navigation a:hover{color:var(--red)}main{padding:0 7vw}.section{padding:74px 0;border-bottom:1px solid var(--line)}.section-label{font:10px var(--mono);letter-spacing:.18em;color:var(--red);text-transform:uppercase}.section-title{font:600 clamp(29px,4vw,48px)/1.1 var(--display);letter-spacing:.01em;margin:12px 0 22px}.section-intro{color:#51534d;line-height:1.9;max-width:750px;margin:0 0 32px}.doc-grid{display:grid;grid-template-columns:1.35fr .8fr;gap:38px}.memo{border-left:3px solid var(--red);padding:5px 0 4px 22px;font-size:15px;line-height:2.05;max-width:780px}.note{background:#ded9cc;padding:22px 24px;align-self:start;position:relative}.note:before{content:'FIELD NOTE';display:block;font:9px var(--mono);letter-spacing:.18em;color:var(--red);margin-bottom:14px}.note p{font-size:12px;line-height:1.9;margin:0;color:#565750}.stamp{position:absolute;right:14px;top:13px;border:1px solid #a53c32;color:#a53c32;font:9px var(--mono);padding:5px 7px;transform:rotate(5deg)}.facts{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);margin-top:30px}.fact{padding:20px;border-right:1px solid var(--line);min-height:112px}.fact:last-child{border:0}.fact small{display:block;font:9px var(--mono);color:var(--red);letter-spacing:.14em;margin-bottom:12px}.fact strong{font-weight:500;font-size:12px;line-height:1.8}.boundary-wrap{position:relative;padding:26px 0 0}.boundary-line{position:absolute;top:0;bottom:0;left:50%;width:2px;background:var(--red);z-index:0}.boundary-tag{position:absolute;left:50%;top:0;transform:translate(-50%,-50%);z-index:2;background:var(--red);color:#f1e8dc;padding:9px 18px;font:11px var(--mono);letter-spacing:.22em;white-space:nowrap}.roster-head{display:grid;grid-template-columns:1fr 1fr;gap:56px;margin-bottom:22px}.country{font:600 25px var(--display);letter-spacing:.04em}.country small{display:block;font:10px var(--mono);color:var(--muted);letter-spacing:.13em;margin-top:5px}.country.jp{text-align:right}.pair-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px 56px;position:relative}.person{background:#ded9cc;border:1px solid #c7c1b4;padding:23px;min-height:192px;position:relative;transition:transform .2s,border-color .2s}.person:hover{transform:translateY(-3px);border-color:var(--red)}.person:after{content:'';position:absolute;top:31px;width:12px;height:12px;background:var(--paper);border:2px solid var(--red);border-radius:50%;z-index:3}.person.left:after{right:-36px}.person.right:after{left:-36px}.person-top{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #bdb8ac;padding-bottom:11px;margin-bottom:17px}.person-id{font:11px var(--mono);color:var(--red);letter-spacing:.1em}.class-tag{font:9px var(--mono);color:#686a63;border:1px solid #aaa69a;padding:4px 7px;letter-spacing:.09em}.person h3{font:600 24px var(--display);margin:0 0 8px;letter-spacing:.02em}.person p{color:#64645d;font-size:11px;line-height:1.8;margin:0;max-width:330px}.person .fill{color:#969187;font:10px var(--mono);letter-spacing:.08em}.roster-sub{font:9px var(--mono);letter-spacing:.16em;color:#807f76;margin:26px 0 13px}.investigators{display:grid;grid-template-columns:1fr 1fr;gap:56px;position:relative}.investigators .person{background:#d8d2c4;border-style:dashed}.investigators .person h3{font-size:22px}.roster-legend{display:flex;justify-content:center;gap:22px;font:9px var(--mono);color:#77776f;margin-top:24px;letter-spacing:.08em}.roster-legend span:before{content:'';display:inline-block;width:7px;height:7px;background:var(--red);border-radius:50%;margin-right:7px}.timeline{border-left:1px solid #8c8a80;margin:36px 0 0 8px;padding:0 0 0 27px;display:grid;gap:23px}.event{position:relative;display:grid;grid-template-columns:115px 1fr;gap:20px}.event:before{content:'';position:absolute;left:-33px;top:6px;width:10px;height:10px;background:var(--paper);border:1px solid var(--red);border-radius:50%}.event time{font:10px var(--mono);color:var(--red);letter-spacing:.07em}.event p{margin:0;font-size:12px;line-height:1.8;color:#4d504a}.agency-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.agency{border:1px solid var(--line);padding:24px;min-height:160px}.agency h3{font:600 21px var(--display);margin:0 0 8px}.agency .jurisdiction{font:9px var(--mono);letter-spacing:.15em;color:var(--red);margin-bottom:14px}.agency p{font-size:12px;line-height:1.85;color:#5a5c55;margin:0}.protocol{margin-top:22px;background:#192123;color:#ddd9ce;padding:24px 28px;display:grid;grid-template-columns:150px 1fr;gap:22px}.protocol b{font:11px var(--mono);color:#d27668;letter-spacing:.1em}.protocol p{margin:0;font-size:11px;line-height:1.9;color:#c1c1b7}.access{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.access article{border-top:2px solid var(--red);padding:18px 16px;background:#ded9cc}.access article small{font:9px var(--mono);letter-spacing:.12em;color:var(--red)}.access h3{font:600 17px var(--display);margin:12px 0 8px}.access p{font-size:11px;line-height:1.85;color:#5c5e57;margin:0}.footer{padding:32px 7vw;background:#101718;color:#9a9d95;display:flex;justify-content:space-between;font:9px var(--mono);letter-spacing:.1em}.footer b{color:#d27668;font-weight:400}.mobile-axis{display:none}
+@media(max-width:760px){.topline{padding:0 20px;font-size:8px}.cover{padding:32px 23px 55px;min-height:610px}.cover-main{margin-top:110px}.cover-side{position:relative;top:auto;right:auto;margin-top:37px;width:auto;max-width:280px}.cover-meta{gap:20px;flex-wrap:wrap}.cover:after{left:23px;font-size:8px}.navigation{padding:0 22px}.navigation a{padding-right:10px;margin-right:18px}main{padding:0 23px}.section{padding:52px 0}.doc-grid{grid-template-columns:1fr;gap:18px}.facts{grid-template-columns:1fr}.fact{border-right:0;border-bottom:1px solid var(--line);min-height:auto}.fact:last-child{border-bottom:0}.boundary-line{left:16px;width:1px}.boundary-tag{left:16px;transform:translate(-8px,-50%);font-size:9px;padding:8px 11px}.roster-head{grid-template-columns:1fr 1fr;gap:15px;padding-left:36px}.country{font-size:20px}.pair-grid,.investigators{grid-template-columns:1fr;gap:12px;padding-left:36px}.person.left:after,.person.right:after{left:-27px;right:auto;width:10px;height:10px}.person{min-height:0;padding:19px}.roster-sub{margin-left:36px}.roster-legend{padding-left:28px;gap:10px;flex-wrap:wrap}.event{grid-template-columns:1fr;gap:5px}.agency-grid{grid-template-columns:1fr}.protocol{grid-template-columns:1fr;gap:10px}.access{grid-template-columns:1fr}.footer{padding:24px;gap:20px;flex-direction:column}.mobile-axis{display:block;position:absolute;left:30px;top:30px;color:var(--red);font:8px var(--mono);writing-mode:vertical-rl;letter-spacing:.16em}}
+
+/* Personnel file motion + portrait slots */
+@keyframes boundary-draw{0%{transform:scaleY(0);transform-origin:top}100%{transform:scaleY(1);transform-origin:top}}
+@keyframes boundary-glow{0%,100%{box-shadow:0 0 0 rgba(165,60,50,0)}50%{box-shadow:0 0 14px rgba(165,60,50,.42)}}
+@keyframes scan-pass{0%{top:-12%;opacity:0}12%{opacity:.8}82%{opacity:.55}100%{top:112%;opacity:0}}
+@keyframes portrait-drift-a{0%,100%{transform:scale(1.06) translate3d(0,0,0)}50%{transform:scale(1.16) translate3d(-1.4%,1.2%,0)}}
+@keyframes portrait-drift-b{0%,100%{transform:scale(1.13) translate3d(-1%,0,0)}50%{transform:scale(1.05) translate3d(1.2%,-1%,0)}}
+@keyframes corner-flicker{0%,100%{opacity:.35}50%{opacity:1}}
+@keyframes tag-blink{0%,88%,100%{opacity:1}92%{opacity:.45}}
+@keyframes card-rise{from{opacity:0;filter:blur(5px)}to{opacity:1;filter:blur(0)}}
+@keyframes grain-flash{0%,100%{opacity:.07}50%{opacity:.13}}
+.boundary-line{background:linear-gradient(to bottom,transparent,var(--red) 7%,var(--red) 92%,transparent);transform:scaleY(0);transform-origin:top;transition:transform 1.7s cubic-bezier(.16,1,.3,1)}
+.boundary-wrap.is-visible .boundary-line{transform:scaleY(1);animation:boundary-glow 4s ease-in-out 1.7s infinite}
+.boundary-tag{opacity:0;transition:opacity .6s ease .85s;animation:tag-blink 6s 2s infinite}
+.boundary-wrap.is-visible .boundary-tag{opacity:1}
+.person{overflow:hidden;isolation:isolate;opacity:0;transform:translateY(22px);transition:transform .45s cubic-bezier(.2,.8,.2,1),border-color .35s,box-shadow .35s}
+.person.is-visible{animation:card-rise .8s cubic-bezier(.16,1,.3,1) forwards;animation-delay:var(--card-delay,0ms);transform:translateY(0)}
+.person:hover{transform:translateY(-5px);border-color:var(--red);box-shadow:0 14px 28px rgba(40,28,21,.16)}
+.person:before{content:'';position:absolute;inset:0;z-index:5;pointer-events:none;border:1px solid transparent;transition:border-color .3s}
+.person:hover:before{border-color:rgba(165,60,50,.75)}
+.person-top,.person h3,.person p{position:relative;z-index:2}
+.portrait{position:relative;isolation:isolate;width:100%;aspect-ratio:4/5;max-height:390px;margin:0 0 19px;overflow:hidden;background:radial-gradient(ellipse at 50% 33%,#77766e 0,#454945 35%,#202727 100%);border:1px solid #aaa397;color:#e9e5d9}
+.portrait:before{content:'';position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(180deg,rgba(10,15,16,.04) 42%,rgba(10,15,16,.78)),linear-gradient(90deg,rgba(165,60,50,.12),transparent 22%,transparent 78%,rgba(165,60,50,.12));mix-blend-mode:multiply}
+.portrait:after{content:'';position:absolute;left:0;right:0;top:-12%;height:2px;z-index:4;pointer-events:none;background:linear-gradient(90deg,transparent,rgba(231,115,99,.95),#fff3d9,rgba(231,115,99,.95),transparent);box-shadow:0 0 13px rgba(210,85,70,.8);animation:scan-pass 5.8s linear infinite}
+.portrait img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 32%;filter:saturate(.78) contrast(1.04);transform-origin:center 38%;animation:portrait-drift-a 13s ease-in-out infinite;transition:filter .5s,transform .7s}
+.person:nth-child(even) .portrait img{animation-name:portrait-drift-b;animation-duration:15s}
+.person:hover .portrait img{animation-play-state:paused;transform:scale(1.2)!important;filter:saturate(1.05) contrast(1.06)}
+.photo-placeholder{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;text-align:center;color:#d4cfc2;font:9px var(--mono);letter-spacing:.18em;background:repeating-linear-gradient(135deg,transparent 0 15px,rgba(255,255,255,.018) 15px 16px)}
+.photo-placeholder:before,.photo-placeholder:after{content:'';position:absolute;width:22px;height:22px;border-color:#d27668;opacity:.8;animation:corner-flicker 3s ease-in-out infinite}
+.photo-placeholder:before{top:12px;left:12px;border-top:1px solid;border-left:1px solid}.photo-placeholder:after{right:12px;bottom:12px;border-right:1px solid;border-bottom:1px solid}
+.photo-placeholder b{font:600 19px var(--display);letter-spacing:.18em;color:#f0e9dc}.photo-placeholder span{font-size:8px;color:#b7b2a6;letter-spacing:.09em}
+.person:has(.portrait img) .photo-placeholder{display:none}
+.person .person-top{border-bottom-color:#a9a397}
+.person .person-id{animation:tag-blink 8s ease-in-out infinite}
+.roster-head .country{position:relative}
+.roster-head .country:after{content:'';position:absolute;left:0;bottom:-9px;width:0;height:1px;background:var(--red);transition:width .8s ease .6s}
+.boundary-wrap.is-visible .roster-head .country:after{width:100%}
+.boundary-wrap.is-visible .person:after{animation:boundary-glow 3s ease-in-out infinite}
+.boundary-wrap.is-visible .person:nth-child(2){--card-delay:120ms}.boundary-wrap.is-visible .person:nth-child(3){--card-delay:240ms}.boundary-wrap.is-visible .person:nth-child(4){--card-delay:360ms}
+.investigators .person.is-visible:nth-child(2){--card-delay:160ms}
+.section-label{transition:letter-spacing .5s,color .5s}.section:hover .section-label{letter-spacing:.28em;color:#762920}
+.cover:before{background-size:100% 100%;animation:corner-flicker 8s ease-in-out infinite}
+@media(max-width:760px){.portrait{aspect-ratio:4/5;max-height:none}.person{padding:15px}.boundary-wrap.is-visible .boundary-line{transition-duration:1.3s}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.person{opacity:1;transform:none}.boundary-line{transform:scaleY(1)}}
+
+
+/* Organization network dossier */
+.network-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px}
+.network-card{position:relative;border:1px solid var(--line);background:#ded9cc;padding:24px;overflow:hidden;min-height:230px}
+.network-card:before{content:'';position:absolute;left:0;top:0;width:3px;height:100%;background:var(--red);transform:scaleY(0);transform-origin:top;transition:transform .8s ease}
+.network-card:hover:before{transform:scaleY(1)}
+.network-card.wide{grid-column:1/-1;background:#192123;color:#e9e5d9}
+.network-card .network-code{font:9px var(--mono);letter-spacing:.16em;color:var(--red);margin-bottom:13px}
+.network-card.wide .network-code{color:#d27668}
+.network-card h3{font:600 25px var(--display);margin:0 0 4px}
+.network-card .hanja{font:12px var(--body);color:#77776f;margin-left:6px}
+.network-card.wide .hanja{color:#a8aaa2}
+.network-card .network-sub{font:9px var(--mono);letter-spacing:.11em;color:#76766f;margin:7px 0 14px}
+.network-card.wide .network-sub{color:#a8aaa2}
+.network-card p{font-size:11px;line-height:1.9;color:#53564f;margin:0}
+.network-card.wide p{color:#c7c7bd}
+.network-card .network-stamp{position:absolute;right:17px;top:18px;border:1px solid #a53c32;color:#a53c32;padding:5px 8px;font:8px var(--mono);letter-spacing:.12em;transform:rotate(3deg)}
+.network-card.wide .network-stamp{border-color:#d27668;color:#e5a195}
+.logistics-flow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:center;gap:11px;margin-top:23px;padding:17px;background:#d4cfc2;border:1px solid #b8b3a7}
+.logistics-flow span{font:9px/1.7 var(--mono);letter-spacing:.07em;text-align:center;color:#343832}
+.logistics-flow b{font:15px var(--display);color:var(--red)}
+.rivalry{margin-top:18px;border:1px solid #c7c1b4;padding:20px 22px;background:linear-gradient(110deg,#e1dcd0,#d4cfc2)}
+.rivalry small{font:9px var(--mono);letter-spacing:.14em;color:var(--red)}
+.rivalry p{margin:9px 0 0;font-size:12px;line-height:1.9;color:#4f514a}
+@media(max-width:760px){.network-grid{grid-template-columns:1fr}.network-card.wide{grid-column:auto}.logistics-flow{grid-template-columns:1fr;gap:7px}.logistics-flow b{transform:rotate(90deg)}}
+
+
+/* Click-through personnel dossiers */
+body.dossier-open{overflow:hidden}
+.person[data-profile]{cursor:pointer;outline:none}
+.person[data-profile]:focus-visible{outline:3px solid var(--red);outline-offset:4px;z-index:6}
+.file-open-cue{position:relative;z-index:2;display:flex;justify-content:space-between;align-items:center;margin-top:17px;padding-top:10px;border-top:1px solid #bdb8ac;color:#77776f;font:8px var(--mono);letter-spacing:.14em;transition:color .25s,border-color .25s}
+.file-open-cue i{font:normal 15px var(--display);color:var(--red);transition:transform .25s}
+.person:hover .file-open-cue{color:var(--red);border-color:var(--red)}.person:hover .file-open-cue i{transform:translate(3px,-2px)}
+.profile-overlay{position:fixed;inset:0;z-index:10000;display:flex;align-items:center;justify-content:center;padding:24px;background:rgba(7,12,13,.86);backdrop-filter:blur(9px);opacity:0;transition:opacity .3s ease}
+.profile-overlay[hidden]{display:none}
+.profile-overlay.is-open{opacity:1}
+.dossier-panel{position:relative;display:grid;grid-template-rows:auto 1fr;width:min(920px,100%);max-height:min(90vh,1000px);background:var(--paper);border:1px solid #a53c32;box-shadow:0 25px 100px #000a;transform:translateY(22px) scale(.985);transition:transform .4s cubic-bezier(.16,1,.3,1);overflow:hidden}
+.profile-overlay.is-open .dossier-panel{transform:translateY(0) scale(1)}
+.dossier-head{position:relative;display:grid;grid-template-columns:150px 1fr auto;gap:22px;align-items:center;padding:22px 28px;background:#172022;color:var(--paper);border-bottom:3px solid var(--red)}
+.dossier-image{width:150px;aspect-ratio:4/5;max-height:190px;overflow:hidden;border:1px solid #6d7069;background:#242d2e}
+.dossier-image .portrait{width:100%;height:100%;aspect-ratio:auto;max-height:none;margin:0;border:0}.dossier-image .portrait:after{animation-duration:4s}
+.dossier-id{font:9px var(--mono);letter-spacing:.18em;color:#d27668}
+.dossier-head h2{font:600 clamp(26px,5vw,44px)/1.05 var(--display);margin:9px 0 8px}
+.dossier-meta{font:9px/1.8 var(--mono);letter-spacing:.1em;color:#b9b9ae}
+.dossier-close{align-self:start;border:1px solid #77796f;background:transparent;color:var(--paper);padding:9px 11px;font:9px var(--mono);letter-spacing:.1em;cursor:pointer;transition:background .2s,border-color .2s}
+.dossier-close:hover{background:var(--red);border-color:var(--red)}
+.dossier-scroll{overflow:auto;padding:27px 32px 36px;overscroll-behavior:contain;scrollbar-color:#a53c32 #d5d0c4;scrollbar-width:thin}
+.dossier-content{max-width:760px;margin:auto}
+.dossier-content h3{font:600 16px var(--display);letter-spacing:.1em;color:var(--red);margin:27px 0 10px;padding-bottom:7px;border-bottom:1px solid #bdb8ac}
+.dossier-content h3:first-child{margin-top:0}
+.dossier-content p,.dossier-content li{font:12px/2 var(--body);color:#474a44}
+.dossier-content p{margin:0 0 12px}
+.dossier-content ul{margin:0 0 12px;padding-left:19px}
+.dossier-content .dossier-facts{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#bdb8ac;border:1px solid #bdb8ac;margin-bottom:22px}
+.dossier-content .dossier-facts div{background:#e1dcd0;padding:13px 15px}
+.dossier-content .dossier-facts small{display:block;font:8px var(--mono);letter-spacing:.12em;color:var(--red);margin-bottom:6px}
+.dossier-content .dossier-facts b{font:500 11px/1.7 var(--body);color:#30332f}
+.dossier-content blockquote{margin:10px 0;padding:10px 15px;border-left:2px solid var(--red);background:#ded9cc;font:12px/1.9 var(--body);color:#343832}
+.dossier-foot{padding:10px 28px;background:#172022;color:#aeb1a9;font:8px var(--mono);letter-spacing:.14em;display:flex;justify-content:space-between}
+@media(max-width:620px){.profile-overlay{padding:10px}.dossier-panel{max-height:94vh}.dossier-head{grid-template-columns:90px 1fr auto;gap:12px;padding:15px}.dossier-image{width:90px;max-height:120px}.dossier-close{font-size:0;padding:8px}.dossier-close:after{content:'×';font:22px var(--body)}.dossier-scroll{padding:21px 18px 28px}.dossier-content .dossier-facts{grid-template-columns:1fr 1fr}.dossier-foot{padding:9px 15px;font-size:7px}}
+@media(prefers-reduced-motion:reduce){.profile-overlay,.dossier-panel,.file-open-cue i{transition:none}}
+
+
+/* Level-one classified access sequence / BORDERLINE title treatment */
+body{background:#070b10;color:var(--ink)}
+.shell{background:#edf0ef;box-shadow:0 0 100px rgba(0,0,0,.78)}
+.topline{background:#080c12;color:#c5ccd0;border-bottom:1px solid #27333c}
+.cover{background:#0b1119;color:#f3f4f1;isolation:isolate;min-height:690px}
+.cover:before{z-index:0;opacity:1;background:radial-gradient(ellipse at 52% 48%,rgba(197,31,45,.21),transparent 43%),linear-gradient(90deg,transparent calc(50% - 1px),rgba(220,42,52,.62) 50%,transparent calc(50% + 1px)),linear-gradient(0deg,#080c12 0%,transparent 48%),repeating-linear-gradient(0deg,rgba(185,207,216,.055) 0 1px,transparent 1px 4px),linear-gradient(135deg,#111c27,#080d13 65%,#170e15);background-size:100% 100%,100% 100%,100% 100%,100% 4px,100% 100%;animation:cover-flicker 8s steps(1,end) infinite}
+.cover:after{z-index:2;left:7vw;bottom:30px;color:#919da4;font-size:9px;letter-spacing:.2em}
+.cover-main{max-width:760px;margin-top:75px}
+.cover-head{color:#b9c2c7}
+.seal{position:relative;border:1px solid #ed3b47;color:#fff1ed;background:rgba(166,22,34,.14);box-shadow:0 0 23px rgba(231,38,53,.18),inset 0 0 18px rgba(231,38,53,.08);text-align:center;animation:seal-enter .8s cubic-bezier(.16,1,.3,1) both,seal-pulse 3.7s 1s ease-in-out infinite}
+.seal i{display:block;font-style:normal;font-size:19px;margin-bottom:5px;color:#ff5360;text-shadow:0 0 14px #f22}
+.eyebrow{color:#ff6570;text-shadow:0 0 12px rgba(255,51,64,.42);animation:eyebrow-blink 7s steps(1,end) infinite}
+.access-console{width:min(535px,100%);margin:19px 0 20px;border:1px solid #51616b;background:rgba(5,10,15,.77);box-shadow:0 0 25px rgba(0,0,0,.34),inset 0 0 20px rgba(130,160,176,.035);font-family:var(--mono);animation:console-arrive .75s .16s both;position:relative;overflow:hidden}
+.access-console:after{content:'';position:absolute;top:-35%;bottom:-35%;left:-25%;width:18%;transform:skewX(-22deg);background:linear-gradient(90deg,transparent,rgba(245,247,239,.13),transparent);animation:console-sweep 4.8s 1s ease-in-out infinite;pointer-events:none}
+.console-top,.console-foot{display:flex;justify-content:space-between;gap:12px;padding:8px 12px;color:#8e9ca5;font-size:8px;letter-spacing:.12em;background:rgba(255,255,255,.025)}
+.console-top{border-bottom:1px solid #2a3942}.console-foot{border-top:1px solid #2a3942;font-size:7px}
+.console-live{color:#d9e0dc}.console-live i{display:inline-block;width:6px;height:6px;margin-right:6px;border-radius:50%;background:#f33;box-shadow:0 0 10px #f33;animation:beacon 1.1s ease-in-out infinite}
+.console-main{padding:13px 14px 11px}.console-korean{color:#d7dcda;font:500 11px var(--body);letter-spacing:.08em;margin-bottom:8px}
+.console-result{display:flex;align-items:baseline;gap:13px;flex-wrap:wrap}.console-result b{font:600 23px/.95 var(--display);letter-spacing:.12em;color:#ff4552;text-shadow:0 0 15px rgba(241,32,47,.38);animation:approved-flash 5s steps(1,end) infinite}.console-result span{font-size:8px;letter-spacing:.12em;color:#f1ece3}
+.console-meter{height:3px;background:#29343b;margin:12px 0 9px;overflow:hidden}.console-meter i{display:block;width:100%;height:100%;background:linear-gradient(90deg,#7d111d,#f12f3d,#ff8d7c);transform-origin:left;box-shadow:0 0 9px #ef303c;animation:meter-fill 1.7s .4s cubic-bezier(.2,.75,.25,1) both,meter-pulse 2.5s 2.2s ease-in-out infinite}
+.title{position:relative;isolation:isolate;width:max-content;max-width:100%;margin:21px 0 20px;color:#f2f2ed;-webkit-text-fill-color:#f2f2ed;text-shadow:0 2px 0 #6c1119,0 8px 24px rgba(0,0,0,.45),0 0 36px rgba(226,36,50,.2);animation:title-breathe 5.2s ease-in-out infinite}
+.title span{color:#ff3e4b;-webkit-text-fill-color:#ff3e4b;text-shadow:0 0 14px rgba(239,36,53,.62),0 0 37px rgba(239,36,53,.23)}
+.title:before,.title:after{content:attr(data-text);position:absolute;left:0;top:0;z-index:-1;pointer-events:none;white-space:nowrap;opacity:0;-webkit-text-fill-color:currentColor}
+.title:before{color:#ff263a;transform:translateX(-3px);animation:title-glitch-red 6.4s steps(1,end) infinite}
+.title:after{color:#fff;transform:translateX(3px);animation:title-glitch-white 8s steps(1,end) infinite}
+.cover-main{position:relative}
+.cover-main:after{content:'';position:absolute;left:0;top:100%;width:min(620px,92%);height:1px;background:linear-gradient(90deg,#f33443,rgba(243,52,67,.18),transparent);box-shadow:0 0 11px #f33443;transform:scaleX(0);transform-origin:left;animation:line-draw 1.4s 1.4s ease-out forwards}
+.subtitle{color:#d1d4d0}
+.cover-meta{border-top-color:#46515a}
+.cover-meta small{color:#a2afb5}.cover-meta b{color:#f2f2ed}
+.cover-side{border-left:1px solid #a9323c;color:#c2c9cb;animation:side-arrive 1s .5s both}
+.cover-side b{color:#ff6b74}
+.navigation{background:#dce1e1;border-bottom:1px solid #aeb8bd}
+.navigation a{position:relative;color:#18212a;transition:color .25s}
+.navigation a:after{content:'';position:absolute;left:0;right:24px;bottom:0;height:2px;background:var(--red);transform:scaleX(0);transform-origin:left;transition:transform .28s}
+.navigation a:hover{color:#b71e2a}.navigation a:hover:after{transform:scaleX(1)}
+.note,.person,.network-card{background:#e2e6e5;border-color:#b7c0c2}
+.note{box-shadow:inset 3px 0 #d12632}.stamp{border-color:#d12632;color:#b51f2b}
+.fact{border-color:#aeb8bd}.facts{border-color:#aeb8bd}
+.network-card.wide,.protocol{background:#111a23}
+.network-card.wide p,.protocol p{color:#d1d7d6}
+.network-card .network-sub{color:#68737c}.network-card.wide .network-sub{color:#aeb8bd}
+.network-card .network-code,.network-card.wide .network-code{color:#d12632}
+.person{background:#e2e6e5}.investigators .person{background:#d9dfe0}
+.person:hover{box-shadow:0 15px 32px rgba(7,14,20,.2)}
+.person p,.agency p,.event p{color:#414b52}
+.access article{background:#e2e6e5}
+.agency,.protocol{border-color:#aeb8bd}
+@keyframes cover-flicker{0%,96%,100%{filter:none}97%{filter:brightness(1.1)}98%{filter:brightness(.92)}99%{filter:brightness(1.04)}}
+@keyframes seal-enter{0%{opacity:0;transform:translateY(-18px) rotate(-12deg) scale(1.4)}65%{opacity:1;transform:translateY(0) rotate(3deg) scale(.96)}100%{transform:rotate(-4deg) scale(1)}}
+@keyframes seal-pulse{0%,100%{box-shadow:0 0 12px rgba(231,38,53,.14),inset 0 0 8px rgba(231,38,53,.04)}50%{box-shadow:0 0 27px rgba(231,38,53,.36),inset 0 0 17px rgba(231,38,53,.13)}}
+@keyframes eyebrow-blink{0%,97%,100%{opacity:1}98%{opacity:.35}99%{opacity:.85}}
+@keyframes console-arrive{from{opacity:0;transform:translateY(12px);filter:blur(3px)}to{opacity:1;transform:translateY(0);filter:blur(0)}}
+@keyframes console-sweep{0%,16%{left:-25%;opacity:0}28%{opacity:1}62%,100%{left:125%;opacity:0}}
+@keyframes beacon{0%,100%{opacity:.45;transform:scale(.82)}50%{opacity:1;transform:scale(1.2)}}
+@keyframes approved-flash{0%,92%,100%{opacity:1}93%{opacity:.4}94%{opacity:1}96%{opacity:.72}}
+@keyframes meter-fill{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes meter-pulse{0%,100%{filter:brightness(.9)}50%{filter:brightness(1.55)}}
+@keyframes title-breathe{0%,100%{filter:drop-shadow(0 0 0 rgba(225,32,48,0))}50%{filter:drop-shadow(0 0 13px rgba(225,32,48,.24))}}
+@keyframes title-glitch-red{0%,89%,100%{opacity:0;clip-path:inset(0 0 100% 0)}90%{opacity:.8;clip-path:inset(12% 0 67% 0);transform:translate(-7px,-2px)}91%{opacity:.65;clip-path:inset(55% 0 25% 0);transform:translate(4px,1px)}92%{opacity:0;clip-path:inset(0 0 100% 0)}}
+@keyframes title-glitch-white{0%,93%,100%{opacity:0;clip-path:inset(0 0 100% 0)}94%{opacity:.55;clip-path:inset(72% 0 9% 0);transform:translate(6px,1px)}95%{opacity:.35;clip-path:inset(24% 0 58% 0);transform:translate(-3px,-1px)}96%{opacity:0;clip-path:inset(0 0 100% 0)}}
+@keyframes line-draw{to{transform:scaleX(1)}}
+@keyframes side-arrive{from{opacity:0;transform:translateX(18px)}to{opacity:1;transform:translateX(0)}}
+@media(max-width:760px){.cover{min-height:730px}.cover-main{margin-top:73px}.cover-side{animation:none}.access-console{margin-top:16px}.console-result b{font-size:20px}.cover-main:after{top:calc(100% + 2px)}}
+@media(prefers-reduced-motion:reduce){.cover:before,.seal,.eyebrow,.access-console,.access-console:after,.console-live i,.console-result b,.console-meter i,.title,.title:before,.title:after,.cover-main:after,.cover-side{animation:none!important;transition:none!important}.cover-main:after{transform:scaleX(1)}}
+
+
+/* Extra surveillance HUD and moving title sheen */
+.cover>*:not(.cover-surveillance){z-index:2}
+.cover-surveillance{position:absolute!important;inset:0;z-index:1;pointer-events:none;overflow:hidden;opacity:.75}
+.cover-surveillance:before{content:'';position:absolute;left:0;right:0;top:-25%;height:17%;background:linear-gradient(180deg,transparent,rgba(236,241,236,.045),rgba(220,34,47,.12),transparent);border-bottom:1px solid rgba(236,241,236,.18);animation:surveillance-scan 6.5s linear infinite}
+.cover-surveillance:after{content:'';position:absolute;right:8%;top:22%;width:245px;height:245px;border:1px solid rgba(189,205,212,.1);border-radius:50%;background:repeating-radial-gradient(circle,transparent 0 27px,rgba(189,205,212,.07) 28px 29px),conic-gradient(from 0deg,transparent 0 70%,rgba(221,36,50,.2) 84%,transparent 100%);mask-image:radial-gradient(circle,#000 0 70%,transparent 72%);animation:radar-turn 18s linear infinite}
+.cover-meta div{opacity:0;animation:meta-entry .55s ease-out forwards}.cover-meta div:nth-child(1){animation-delay:1.15s}.cover-meta div:nth-child(2){animation-delay:1.35s}.cover-meta div:nth-child(3){animation-delay:1.55s}
+.title{background-image:linear-gradient(180deg,#fff 0%,#bdc5c8 38%,#fff 53%,#aab3b7 78%,#f4f3ef 100%);background-size:100% 230%;background-position:50% 0%;background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:title-breathe 5.2s ease-in-out infinite,title-surface 6.5s ease-in-out infinite}
+.title span{background-image:linear-gradient(110deg,#ff6972 0%,#d12632 34%,#fff0e8 49%,#bd1423 64%,#ff6972 100%);background-size:240% 100%;background-position:100% 50%;background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:line-sheen 4.2s ease-in-out infinite}
+.title:before,.title:after{-webkit-text-fill-color:currentColor}
+@keyframes surveillance-scan{0%{top:-25%;opacity:0}10%{opacity:1}78%{opacity:.8}100%{top:110%;opacity:0}}
+@keyframes radar-turn{to{transform:rotate(360deg)}}
+@keyframes meta-entry{from{opacity:0;transform:translateY(9px);filter:blur(2px)}to{opacity:1;transform:translateY(0);filter:blur(0)}}
+@keyframes title-surface{0%,100%{background-position:50% 0%}50%{background-position:50% 100%}}
+@keyframes line-sheen{0%,20%{background-position:100% 50%}65%,100%{background-position:0% 50%}}
+@media(max-width:760px){.cover-surveillance:after{width:180px;height:180px;right:-3%;top:36%;opacity:.7}}
+@media(prefers-reduced-motion:reduce){.cover-surveillance:before,.cover-surveillance:after,.cover-meta div,.title,.title span{animation:none!important;opacity:1}}
+
+
+/* BORDERLINE custom wordmark: the boundary physically divides the title */
+.title-lockup{position:relative;display:inline-block;max-width:100%;margin:8px 0 18px;padding:14px 17px 12px;isolation:isolate}
+.title-index,.title-foot{display:flex;justify-content:space-between;align-items:center;gap:20px;white-space:nowrap;font:8px var(--mono);letter-spacing:.16em;color:#a9b3b9}
+.title-index{margin:0 0 9px;padding-bottom:7px;border-bottom:1px solid rgba(191,204,209,.26)}
+.title-index span:last-child{color:#ff616d;text-shadow:0 0 9px rgba(240,34,51,.45)}
+.title{display:flex!important;align-items:center;justify-content:flex-start;width:max-content;max-width:100%;white-space:nowrap;overflow:visible;margin:0!important;padding:0 0 4px;font-size:clamp(60px,12.1vw,158px)!important;line-height:.86!important;letter-spacing:-.065em!important;color:#f5f5f0;-webkit-text-fill-color:transparent;background:none!important;text-shadow:0 6px 20px rgba(0,0,0,.5)!important;filter:none;animation:title-breathe 4.8s ease-in-out infinite!important}
+.title-first,.title-second{position:relative;z-index:2;display:inline-block;white-space:nowrap;font-weight:700;transition:filter .3s,transform .3s}
+.title-first{background:linear-gradient(180deg,#fff 0%,#d3d9da 43%,#f8f5ed 49%,#8d999f 100%);background-size:100% 240%;background-position:50% 0;background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 1px 0 #fff5) drop-shadow(0 0 12px rgba(203,217,222,.12));animation:steel-sheen 5.4s ease-in-out infinite,border-jitter 8s steps(1,end) infinite}
+.title-second{margin-left:.035em;background:linear-gradient(180deg,#ff8790 0%,#f23849 42%,#b70f24 53%,#ff4855 100%);background-size:100% 230%;background-position:50% 0;background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 0 14px rgba(234,34,51,.38));animation:red-sheen 4.6s ease-in-out infinite,line-jitter 6.7s steps(1,end) infinite}
+.title-boundary{position:relative;z-index:4;display:block;flex:0 0 .055em;width:.055em;height:.82em;margin:0 .085em 0 .11em;background:linear-gradient(180deg,transparent 0%,#ff8990 12%,#fff 25%,#ed293a 48%,#ff3345 74%,transparent 100%);box-shadow:0 0 7px #fb2639,0 0 18px rgba(255,39,56,.78),0 0 37px rgba(255,34,52,.38);transform:skewY(-7deg);animation:seam-flare 2.8s ease-in-out infinite}
+.title-boundary:before,.title-boundary:after{content:'';position:absolute;left:50%;width:.27em;height:2px;background:#fff;box-shadow:0 0 8px #fff,0 0 16px #f33;transform:translateX(-50%)}
+.title-boundary:before{top:23%;animation:seam-tick 3.4s ease-in-out infinite}.title-boundary:after{bottom:18%;animation:seam-tick 3.4s 1.7s ease-in-out infinite}
+.title-cut{position:absolute;z-index:5;left:-1%;right:-1%;top:51%;height:2px;padding:0;background:linear-gradient(90deg,transparent 0%,rgba(224,38,52,.45) 8%,#f92d41 28%,#fff 49%,#f33a49 61%,rgba(224,38,52,.5) 88%,transparent 100%);box-shadow:0 0 8px rgba(242,35,52,.85),0 0 19px rgba(242,35,52,.42);transform:scaleX(.06);transform-origin:center;animation:boundary-cut 4.8s cubic-bezier(.65,0,.35,1) infinite}
+.title-cut:after{content:'';position:absolute;top:-4px;left:0;width:14px;height:10px;background:#fff;box-shadow:0 0 12px #fff,0 0 25px #ff243b;animation:cut-tracer 4.8s ease-in-out infinite}
+.title-foot{margin-top:3px;padding-top:7px;border-top:1px solid rgba(191,204,209,.26);font-size:7px;color:#8d9aa1}
+.title-foot span:first-child{color:#f0d6d4}.title-foot span:last-child{color:#f34b58}
+.title-corners i{position:absolute;width:13px;height:13px;border-color:#e43745;border-style:solid;opacity:.9;animation:corner-lock 3.6s ease-in-out infinite}
+.title-corners i:nth-child(1){top:0;left:0;border-width:1px 0 0 1px}.title-corners i:nth-child(2){top:0;right:0;border-width:1px 1px 0 0}.title-corners i:nth-child(3){bottom:0;left:0;border-width:0 0 1px 1px}.title-corners i:nth-child(4){bottom:0;right:0;border-width:0 1px 1px 0}
+.title-lockup:hover .title-first{filter:drop-shadow(0 0 15px rgba(224,237,241,.38));transform:translateY(-2px)}
+.title-lockup:hover .title-second{filter:drop-shadow(0 0 22px rgba(255,27,47,.8));transform:translateY(2px)}
+@keyframes steel-sheen{0%,18%{background-position:50% 0}55%,100%{background-position:50% 100%}}
+@keyframes red-sheen{0%,20%{background-position:50% 0}62%,100%{background-position:50% 100%}}
+@keyframes seam-flare{0%,100%{opacity:.72;filter:brightness(.9);transform:skewY(-7deg) scaleY(.92)}50%{opacity:1;filter:brightness(1.75);transform:skewY(-7deg) scaleY(1.04)}}
+@keyframes seam-tick{0%,75%,100%{opacity:.1;width:.12em}83%{opacity:1;width:.34em}89%{opacity:.25;width:.16em}}
+@keyframes boundary-cut{0%,14%{transform:scaleX(.04);opacity:.1}32%{transform:scaleX(1);opacity:1}43%{transform:scaleX(1);opacity:.9}59%,100%{transform:scaleX(.04);opacity:0}}
+@keyframes cut-tracer{0%,14%{left:0;opacity:0}18%{opacity:1}43%{left:calc(100% - 14px);opacity:1}58%,100%{left:calc(100% - 14px);opacity:0}}
+@keyframes border-jitter{0%,95%,100%{transform:translate(0)}96%{transform:translate(-2px,1px)}97%{transform:translate(1px,-1px)}}
+@keyframes line-jitter{0%,91%,100%{transform:translate(0)}92%{transform:translate(2px,-1px)}93%{transform:translate(-1px,1px)}}
+@keyframes corner-lock{0%,100%{opacity:.55;filter:drop-shadow(0 0 0 #e43745)}50%{opacity:1;filter:drop-shadow(0 0 5px #e43745)}}
+@media(max-width:760px){.title-lockup{padding:12px 13px 10px;margin:8px 0 18px}.title-index,.title-foot{font-size:6px;letter-spacing:.1em;gap:8px}.title{font-size:clamp(47px,12.2vw,91px)!important}.title-boundary{margin-left:.07em;margin-right:.055em}.title-cut{height:1.5px}}
+@media(prefers-reduced-motion:reduce){.title,.title-first,.title-second,.title-boundary,.title-boundary:before,.title-boundary:after,.title-cut,.title-cut:after,.title-corners i{animation:none!important;transition:none!important}.title-cut{transform:scaleX(1);opacity:.8}}
+
+
+/* BORDER in ink on a bright metal plate, cut at the dividing edge */
+.title-first{color:#080b0f!important;-webkit-text-fill-color:#080b0f!important;background:linear-gradient(180deg,#f4f5f1 0%,#b9c1c4 48%,#e9ece9 100%)!important;background-size:100% 230%!important;background-position:50% 0!important;background-clip:padding-box!important;-webkit-background-clip:padding-box!important;padding:.018em .075em .045em .025em;clip-path:polygon(0 0,100% 0,96.8% 100%,0 100%);text-shadow:0 1px 0 rgba(255,255,255,.6),0 2px 1px rgba(0,0,0,.34)!important;box-shadow:inset 0 0 0 1px rgba(255,255,255,.5),0 7px 18px rgba(0,0,0,.28);filter:none!important;animation:steel-plate 5.2s ease-in-out infinite,border-jitter 8s steps(1,end) infinite}
+@keyframes steel-plate{0%,16%{background-position:50% 0}52%,100%{background-position:50% 100%}}
+@media(prefers-reduced-motion:reduce){.title-first{animation:none!important}}
+
+
+.lang-switch{margin-left:18px;align-self:center;color:#ff747c;text-decoration:none;font:9px var(--mono);letter-spacing:.12em;white-space:nowrap}
+.lang-switch:hover{color:#fff}.sound-control{position:fixed;right:18px;top:56px;z-index:8000}.sound-toggle{border:1px solid #d12632;background:#101820eF;color:#f4f4ef;padding:10px 13px;font:9px var(--mono);letter-spacing:.12em;box-shadow:0 5px 20px #0005;cursor:pointer}.sound-toggle:hover,.sound-toggle.is-playing{background:#d12632;color:#fff}
+@media(max-width:760px){.sound-control{top:auto;bottom:18px;right:14px}.sound-toggle{padding:9px 11px}.lang-switch{margin-left:8px}}
+
+
+
+/* BORDERLINE index wordmark treatment — glowing divided title with a moving scan */
+.title{position:relative!important;isolation:isolate;display:inline-block!important;width:max-content;max-width:100%;margin:24px 0 18px!important;font:900 clamp(64px,12.6vw,168px)/.78 Impact,"Arial Narrow",sans-serif!important;letter-spacing:-.055em!important;color:#f4f3ef!important;-webkit-text-fill-color:#f4f3ef!important;background:none!important;white-space:nowrap;text-shadow:0 2px 0 #551018,0 7px 0 #17191d,0 13px 32px rgba(0,0,0,.75),0 0 42px rgba(230,25,48,.38)!important;filter:none!important;animation:word-pulse 4.8s ease-in-out infinite!important}
+.title span{position:relative;color:#f02e43!important;-webkit-text-fill-color:#f02e43!important;background:none!important;text-shadow:0 1px 0 #6d101b,0 0 12px rgba(255,40,62,.92),0 0 38px rgba(239,32,55,.6)!important;animation:none!important}
+.title span:before{content:"";position:absolute;left:-.055em;top:.06em;height:.78em;width:2px;background:#f4f3ef;box-shadow:0 0 8px #fff,0 0 19px #ff253c;transform:skew(-11deg)}
+.title:after{content:"";position:absolute;left:-5%;right:-5%;top:0;height:3px;z-index:4;pointer-events:none;background:linear-gradient(90deg,transparent,rgba(255,255,255,.2) 18%,#fff 40%,#ff263d 52%,rgba(255,255,255,.9) 63%,transparent);box-shadow:0 0 9px #ff263d,0 0 28px rgba(255,30,53,.9);opacity:0;animation:scan-title 3.8s cubic-bezier(.65,0,.25,1) infinite}
+@keyframes scan-title{0%,8%{top:0;opacity:0}15%{opacity:1}85%{opacity:.9}96%,100%{top:100%;opacity:0}}
+@keyframes word-pulse{0%,100%{filter:brightness(1)}48%{filter:brightness(1.08)}51%{filter:brightness(.8)}53%{filter:brightness(1.2)}56%{filter:brightness(1)}}
+@media(max-width:760px){.title{font-size:clamp(48px,13vw,88px)!important}}
+@media(prefers-reduced-motion:reduce){.title,.title:after{animation:none!important}}
+
+</style>
+</head>
+<body><div class="shell">
+<div class="topline"><span>JOINT TASK ARCHIVE / SEOUL — TOKYO — OSAKA</span><span class="live">● LIVE FILE // ACCESS LOGGED</span><a class="lang-switch" href="BORDERLINE_casefile_ja.html" aria-label="日本語版へ">日本語 ↗</a></div>
+<header class="cover" id="top"><div class="cover-surveillance" aria-hidden="true"></div><div class="cover-head"><span>Republic of Korea × Japan<br>Cross-border Organized Crime Desk</span><span class="seal"><i>◈</i> LEVEL 01<br>CONFIDENTIAL<br>ACCESS GRANTED</span></div><div class="cover-main"><div class="eyebrow">Case file 26-KJ-041 / Joint operation</div><div class="access-console"><div class="console-top"><span>SECURE GATEWAY // BORDERLINE</span><span class="console-live"><i></i> ENCRYPTED</span></div><div class="console-main"><div class="console-korean">기밀 파일 접근 권한 확인</div><div class="console-result"><b>ACCESS GRANTED</b><span>LEVEL 01 / APPROVED</span></div><div class="console-meter"><i></i></div><div class="console-foot"><span>IDENTITY VERIFIED</span><span>SESSION 26-KJ-041</span></div></div></div><h1 class="title">BORDER<span>LINE</span></h1><p class="subtitle">선을 넘는 거래, 선을 지키려는 수사.<br>부산과 하카타, 그리고 신성회 세력권이 같은 경계 위에서 마주친다.</p><div class="cover-meta"><div><small>FILE STATUS</small><b>ACTIVE / UNDER REVIEW</b></div><div><small>PRIMARY SUBJECT</small><b>TRANSNATIONAL TRADE</b></div><div><small>DATE OPENED</small><b>2026. —. —</b></div></div></div><aside class="cover-side"><b>CASE CLASSIFICATION</b>ORGANIZED CRIME<br>CROSS-BORDER OPERATION<br><br><b>ACCESS TIER</b>LEVEL 01 / AUTHORIZED<br><br><b>ACCESS RECORD</b>06 PERSONNEL FILES<br>CLASSIFIED / OPEN</aside></header>
+<div class="sound-control"><button type="button" class="sound-toggle" aria-label="한국어 배경음악 재생">♫ BGM OFF</button><audio class="locale-audio" src="./bgm-korean.mp3" loop preload="none"></audio></div><nav class="navigation"><a href="#brief">01 / BRIEF</a><a href="#network">02 / ORGANIZATION NETWORK</a><a href="#roster">03 / PERSONNEL</a><a href="#operation">04 / OPERATION</a><a href="#agencies">05 / AGENCIES</a></nav>
+<main>
+<section class="section" id="brief"><div class="section-label">01 — Situation report</div><h2 class="section-title">사건 개요 / 정보 요약</h2><p class="section-intro">아래 내용은 현재까지 확보된 첩보와 관계기관의 공유 자료를 바탕으로 작성되었다. 거래의 전모와 배후는 미확인 상태다.</p><div class="doc-grid"><div class="memo">2026년, 부산항을 출발해 후쿠오카·하카타로 이어지는 기존 물류망에서 평소와 다른 대형 거래 징후가 포착됐다. 부산 기반 중견 조직 해진회와 일본 최대 광역 폭력단 신성회 계열 세력이 각자의 영역과 체계를 유지한 채 거래를 추진 중이다. 거래가 성사되면 양측의 권력 구도와 항만 물류망의 통제권이 함께 흔들릴 수 있다.<br>한국 수사기관은 부산항의 화물·하청망에서, 일본 수사기관은 하카타의 자금 흐름과 접선망에서 각각 수사를 시작했다. 별개로 보였던 사건은 부산-하카타를 잇는 동일한 물류 경로에서 맞물린다. 거래를 성사시키려는 자, 정보를 빼내려는 자, 책임을 떠넘기려는 자가 한 경계선에 모였다.</div><aside class="note"><span class="stamp">UNVERIFIED</span><p>물품, 자금 규모, 최종 목적, 배후 인물은 아직 특정되지 않았다. 모든 접촉자가 거래 전체를 알고 있다고 볼 수 없다. 본 사건은 공통 배경이며, 각 인물의 개별 서사는 별도 분기로 진행될 수 있다.</p></aside></div><div class="facts"><div class="fact"><small>AREA / 관할</small><strong>대한민국 부산·부산항<br>일본 후쿠오카·하카타</strong></div><div class="fact"><small>SUBJECT / 대상</small><strong>해진회 물류망과<br>신성회 계열의 거래</strong></div><div class="fact"><small>ASSESSMENT / 평가</small><strong>거래 파트너 관계.<br>상하 관계는 아님.</strong></div></div></section>
+<section class="section" id="network"><div class="section-label">02 — Organization network / 부산 — 하카타</div><h2 class="section-title">조직망 파일 / 항만을 건너는 거래</h2><p class="section-intro">이 사건의 연결점은 한 조직의 본부가 아니라, 정상적인 물류와 비공식 거래가 겹치는 항만 네트워크다. 각 조직은 필요한 정보만 공유하며, 거래의 전체 그림을 아는 인물은 제한적이다.</p><div class="network-grid"><article class="network-card"><div class="network-code">ROK / BUSAN · MID-SCALE</div><span class="network-stamp">ACTIVE</span><h3>해진회 <span class="hanja">海津會</span></h3><div class="network-sub">BUSAN-BASED ORGANIZED GROUP</div><p>부산항의 항만 노동·유흥업·사채업·경호업을 기반으로 성장한 중견 조직. 전통적인 선후배 위계는 유지하지만 운영은 실무 중심으로 기업화됐다. 싸움 실력보다 사람과 돈을 정확히 움직이고, 사고를 수습하며, 맡은 일을 끝내는 능력이 높이 평가된다. 불필요한 소란은 사업에 손해라는 인식이 강해 폭력은 권위 과시보다 문제 해결의 수단에 가깝다. 조직 내부에서 통하는 기준은 단순하다. <q>자기 맡은 일은 정확히 끝낸다.</q></p></article><article class="network-card"><div class="network-code">JPN / TOKYO HQ · 8-CITY REACH</div><span class="network-stamp">NATIONAL SCALE</span><h3>신성회</h3><div class="network-sub">JAPAN'S LARGEST WIDE-AREA SYNDICATE</div><p>도쿄에 본부를 둔 일본 최대 규모의 광역 폭력단. 하카타·오사카·요코하마를 비롯해 총 8개 도시에 세력을 두고 있다. 각 지역 조직은 본부의 영향력 아래 움직이지만 현지 이해관계와 거래 조건에 따라 독자적으로 판단하기도 한다. 이치노세조는 신조회 직계 조직이다. 신죠회 회장 신죠 세이이치로에게 발탁된 소우지는 과거 신성회 산하 키리우 조직을 장악·재편해 이치노세조를 출범시켰다.</p></article><article class="network-card wide"><div class="network-code">CORPORATE FRONT / BUSAN PORT LOGISTICS</div><span class="network-stamp">PUBLIC RECORD: CLEAN</span><h3>해담로지스 주식회사 <span class="hanja">HAEDAM LOGIS</span></h3><div class="network-sub">택배 · 기업물류 · 창고보관 · 항만운송 · 국제운송 · 수출입 물류</div><p>해진회가 실질적인 영향력을 행사하는 종합 물류기업. 부산에서 시작해 성장한 정상적인 중견 물류회사로 알려져 있으며 부산·경남권에서는 택배 차량과 상자를 흔히 볼 수 있다. 조직의 비공식 거래는 운송회사, 창고, 하청업체, 항만 인력, 해외 거래처가 연결된 정상 물류망 안에 섞여 이동한다. 직원 전원이 조직과 연결된 것은 아니다. 대다수 일반 직원은 관계를 모르며 일부 임원·관리직·현장 책임자만 직접 연결되어 있다.</p><div class="logistics-flow"><span><b>BUSAN</b><br>해담로지스·부산항</span><b>→</b><span><b>HAKATA</b><br>국제 운송·거래 접점</span><b>→</b><span><b>8-CITY NETWORK</b><br>신성회 세력권</span></div></article><article class="network-card wide"><div class="network-code">BILATERAL TRADE / PARTNERS, NOT SUBORDINATES</div><h3>부산–하카타 거래</h3><div class="network-sub">BUSAN PORT ↔ FUKUOKA · HAKATA</div><p>해진회와 후쿠오카·하카타 기반 야쿠자 조직은 상하관계가 아닌 거래 파트너다. 부산항과 해담로지스의 국제 물류망이 양측 거래의 주요 기반으로 쓰인다. 최근 기존보다 큰 규모의 거래가 추진되면서 양국 수사기관이 각각 이상 징후를 포착했다. 구체적인 품목과 최종 목적은 미확정이며, 합작 설정에 따라 확장할 수 있다. 현장 담당자는 운송 일정만 알고 거래 목적은 모를 수 있고, 협상 담당자는 조건을 알아도 현장 운영을 직접 맡지 않을 수 있다.</p></article></div></section><section class="section" id="roster"><div class="section-label">03 — Personnel index / 06 profiles</div><h2 class="section-title">인물 파일 / 경계선 등록부</h2><p class="section-intro">부산의 해진회와 일본 측 조직, 그리고 양국의 잠입 수사관을 경계선 양쪽에 배치했다. 인물별 사진과 세부 설정은 각 파일 슬롯에 추가할 수 있다.</p><div class="boundary-wrap" data-motion-root><div class="boundary-line"></div><div class="boundary-tag">BORDERLINE / 경계선</div><div class="roster-head"><div class="country">해진회<span><small>BUSAN / 海津會</small></span></div><div class="country jp">일본 측 조직<span><small>SHINSEIKAI NETWORK / HAKATA</small></span></div></div><div class="pair-grid">
+<article class="person left" data-profile="MODANWOO" role="button" tabindex="0" aria-haspopup="dialog" aria-controls="profile-overlay" aria-label="모단우 인물 파일 열기"><div class="portrait" aria-label="KR-01 인물 사진 슬롯"><img src="IMG_6819.jpeg" alt="모단우" loading="lazy" decoding="async"><div class="photo-placeholder"><b>PHOTO / KR-01</b><span>이미지를 넣으려면 이 슬롯 안에 &lt;img src="사진 주소" alt="인물 사진"&gt; 삽입</span></div></div><div class="person-top"><span class="person-id">KR-01 / FILE OPEN</span><span class="class-tag">현장관리 책임자</span></div><h3>모단우</h3><p>부산 해진회·해담로지스 현장 실무와 항만 화물 관리를 담당. <span class="fill">[상세 파일은 카드 클릭]</span></p><span class="file-open-cue">OPEN PERSONNEL FILE <i>↗</i></span></article>
+<article class="person right" data-profile="SOUJI" role="button" tabindex="0" aria-haspopup="dialog" aria-controls="profile-overlay" aria-label="이치노세 소우지 인물 파일 열기"><div class="portrait" aria-label="JP-01 인물 사진 슬롯"><img src="IMG_6246.jpeg" alt="이치노세 소우지" loading="lazy" decoding="async"><div class="photo-placeholder"><b>PHOTO / JP-01</b><span>이미지를 넣으려면 이 슬롯 안에 &lt;img src="사진 주소" alt="인물 사진"&gt; 삽입</span></div></div><div class="person-top"><span class="person-id">JP-01 / FILE OPEN</span><span class="class-tag">조직장</span></div><h3>이치노세 소우지</h3><p>신조회 직계·이치노세조 조직장. 하카타 거점, 한국 거래 담당. <span class="fill">[상세 파일은 카드 클릭]</span></p><span class="file-open-cue">OPEN PERSONNEL FILE <i>↗</i></span></article>
+<article class="person left" data-profile="JOHEON" role="button" tabindex="0" aria-haspopup="dialog" aria-controls="profile-overlay" aria-label="조헌 인물 파일 열기"><div class="portrait" aria-label="KR-02 인물 사진 슬롯"><img src="IMG_6978.jpeg" alt="조헌" loading="lazy" decoding="async"><div class="photo-placeholder"><b>PHOTO / KR-02</b><span>이미지를 넣으려면 이 슬롯 안에 &lt;img src="사진 주소" alt="인물 사진"&gt; 삽입</span></div></div><div class="person-top"><span class="person-id">KR-02 / FILE OPEN</span><span class="class-tag">실장</span></div><h3>조헌</h3><p>해진회 대외협력실장. 일본 측 연락·협상과 내부 업무 조율. <span class="fill">[상세 파일은 카드 클릭]</span></p><span class="file-open-cue">OPEN PERSONNEL FILE <i>↗</i></span></article>
+<article class="person right" data-profile="MITSURU" role="button" tabindex="0" aria-haspopup="dialog" aria-controls="profile-overlay" aria-label="하나토 미츠루 인물 파일 열기"><div class="portrait" aria-label="JP-02 인물 사진 슬롯"><img src="IMG_6673.jpeg" alt="하나토 미츠루" loading="lazy" decoding="async"><div class="photo-placeholder"><b>PHOTO / JP-02</b><span>이미지를 넣으려면 이 슬롯 안에 &lt;img src="사진 주소" alt="인물 사진"&gt; 삽입</span></div></div><div class="person-top"><span class="person-id">JP-02 / FILE OPEN</span><span class="class-tag">와카가시라</span></div><h3>하나토 미츠루</h3><p>일본 측 조직의 젊은 2인자. 조직장에게 절대적인 충성을 바친다. <span class="fill">[상세 파일은 카드 클릭]</span></p><span class="file-open-cue">OPEN PERSONNEL FILE <i>↗</i></span></article>
+</div><div class="roster-sub">CROSS-BORDER INVESTIGATION / UNDERCOVER PERSONNEL</div><div class="investigators">
+<article class="person left" data-profile="KANG" role="button" tabindex="0" aria-haspopup="dialog" aria-controls="profile-overlay" aria-label="강묵현 인물 파일 열기"><div class="portrait" aria-label="K-INV 인물 사진 슬롯"><img src="IMG_6515.jpeg" alt="강묵현" loading="lazy" decoding="async"><div class="photo-placeholder"><b>PHOTO / K-INV</b><span>이미지를 넣으려면 이 슬롯 안에 &lt;img src="사진 주소" alt="인물 사진"&gt; 삽입</span></div></div><div class="person-top"><span class="person-id">K-INV / SEALED</span><span class="class-tag">검사 / 전담수사</span></div><h3>강묵현</h3><p>한일 조직범죄 전담팀 검사. 부산항의 물류·자금 흐름과 조직 유착을 수사. <span class="fill">[상세 파일은 카드 클릭]</span></p><span class="file-open-cue">OPEN PERSONNEL FILE <i>↗</i></span></article>
+<article class="person right" data-profile="SETO" role="button" tabindex="0" aria-haspopup="dialog" aria-controls="profile-overlay" aria-label="세토 마스미 인물 파일 열기"><div class="portrait" aria-label="J-INV 인물 사진 슬롯"><img src="IMG_6975.jpeg" alt="세토 마스미" loading="lazy" decoding="async"><div class="photo-placeholder"><b>PHOTO / J-INV</b><span>이미지를 넣으려면 이 슬롯 안에 &lt;img src="사진 주소" alt="인물 사진"&gt; 삽입</span></div></div><div class="person-top"><span class="person-id">J-INV / SEALED</span><span class="class-tag">경시청 / 잠입</span></div><h3>세토 마스미</h3><p>경시청 국제범죄대책과. 전 용병 신분으로 이치노세조에 잠입. <span class="fill">[상세 파일은 카드 클릭]</span></p><span class="file-open-cue">OPEN PERSONNEL FILE <i>↗</i></span></article>
+</div></div><div class="roster-legend"><span>한국 세력</span><span>일본 세력</span><span>잠입 인력 / 신원 제한</span></div></section>
+<section class="section" id="operation"><div class="section-label">04 — Operation log / timeline incomplete</div><h2 class="section-title">공통 사건 / 밀거래 추적</h2><p class="section-intro">아래 시간 순서는 사건의 고정 결말이 아니라 공통 배경의 기준점이다. 실제 전개는 인물의 선택과 개별 분기에 따라 달라진다.</p><div class="timeline"><div class="event"><time>PHASE 01 / 감지</time><p>부산항의 화물 이동과 하청망을 살피던 한국 수사팀이 해진회 주변의 대형 거래 징후를 포착한다.</p></div><div class="event"><time>PHASE 02 / 접촉</time><p>하카타의 자금 흐름과 접선 기록을 추적하던 일본 수사팀이 같은 시기 독립적으로 이상 징후를 잡는다. 양쪽은 처음엔 별개 사건으로 분류한다.</p></div><div class="event"><time>PHASE 03 / 침투</time><p>양국의 수사관은 부산-하카타 물류 경로가 겹친다는 점을 확인하고 공조에 들어간다. 과거 함께 일한 적이 있어 서로의 얼굴과 실력을 이미 알고 있다.</p></div><div class="event"><time>PHASE 04 / 미확정</time><p>수사는 협력으로 진행되지만 양측은 자국 수사권과 주도권, 최종 실적을 놓고 경쟁한다. 정보 공유의 범위와 현장 지휘, 공을 누가 가져갈지가 매번 협상 대상이 된다.</p></div></div></section>
+<section class="section" id="agencies"><div class="section-label">05 — Joint task force / limited disclosure</div><h2 class="section-title">관계기관 / 공조 현황</h2><div class="agency-grid"><article class="agency"><div class="jurisdiction">ROK / SEOUL</div><h3>한국 수사기관</h3><p>부산항을 중심으로 해진회와 해담로지스 주변의 화물 이동, 하청업체, 항만 인력 흐름을 추적한다. 일본 측과 공조하면서도 국내 수사권과 사건 주도권, 성과의 귀속을 확보하려 한다.</p></article><article class="agency"><div class="jurisdiction">JPN / TOKYO · OSAKA</div><h3>일본 수사기관</h3><p>하카타를 거점으로 신성회 세력권의 자금 흐름과 지역 조직의 접촉망을 추적한다. 한국 수사관과 과거 함께 일해 서로의 수완을 알지만, 일본 내 수사 주도권과 공적을 양보할 생각은 없다.</p></article></div><div class="protocol"><b>SHARED INTELLIGENCE<br>LIMITED</b><p>양국 수사관은 과거 같은 작전에서 함께 일해 서로 얼굴과 실력을 알고 있다. 이번에도 거래망을 끊기 위해 협력하지만, 각자 자국의 수사권과 현장 지휘권을 지키려 한다. 핵심 정보의 선공개, 작전 결정권, 체포 실적과 사건 공로를 두고 팽팽하게 경쟁한다. 서로를 믿을 만한 실력자로 인정하면서도 상대에게 공을 빼앗길 수 있다고 경계한다.</p></div></section>
+
+</main>
+<div class="profile-overlay" id="profile-overlay" hidden aria-hidden="true">
+ <section class="dossier-panel" role="dialog" aria-modal="true" aria-labelledby="dossier-title">
+  <header class="dossier-head"><div class="dossier-image" id="dossier-image"></div><div><div class="dossier-id" id="dossier-id">PERSONNEL FILE / RESTRICTED</div><h2 id="dossier-title">인물 파일</h2><div class="dossier-meta" id="dossier-meta"></div></div><button class="dossier-close" type="button" aria-label="인물 파일 닫기">CLOSE ×</button></header>
+  <div class="dossier-scroll" id="dossier-scroll"><div class="dossier-content" id="dossier-content"></div></div>
+  <footer class="dossier-foot"><span>BORDERLINE / PERSONNEL ARCHIVE</span><span>ACCESS LOGGED · CLASSIFIED</span></footer>
+ </section>
+</div>
+<template id="profile-MODANWOO"><div class="dossier-facts"><div><small>AGE / HEIGHT</small><b>29세 · 188cm</b></div><div><small>AFFILIATION</small><b>해진회 / 해담로지스</b></div><div><small>POSITION</small><b>현장관리 책임자 · 직속 조헌 실장</b></div></div>
+<h3>외형</h3><p>부산 출신. 큰 체격과 넓은 어깨를 가진 단단한 근육질이며, 보디빌더처럼 과하게 비대하기보다 오랫동안 몸을 써 만들어진 운동형 체격이다. 짧은 검은 머리를 거칠고 자연스럽게 올리고 다니며, 두꺼운 일자 눈썹과 무쌍에 가까운 좁은 눈매, 검은 눈동자가 특징이다. 오른쪽 눈썹에는 짧은 슬릿이 있고 왼쪽 눈 아래와 아랫입술 아래에 작은 점이 하나씩 있다. 왼쪽 가슴에는 커다란 흑백 모란 문신이 있다. 첫인상은 위압적이다.</p>
+<h3>성격과 말투</h3><p>우직하고 말수가 적으며 책임감이 강하다. 쉽게 흥분하지 않고 화가 날수록 오히려 말이 줄어든다. 불필요한 싸움을 좋아하지 않지만 힘을 써야 한다고 판단하면 망설이지 않는다. 약한 사람이나 곤란한 사람을 그냥 지나치지 못하고, 자신이 할 수 있으니 하는 일이라 여긴다. 자기 몸과 불편함은 뒤로 미루며 “저는 괜찮습니다”라고 자주 말한다. 외모나 능력에 자신이 없는 것은 아니지만 호의와 애정을 받는 상황에는 서툴다.</p><p>부산 사투리를 일상적으로 쓴다. 낯선 사람과 거래 상대에게는 존댓말을 쓰지만 억양은 남아 있고, 당황하거나 화가 나거나 가까운 사람과 이야기할수록 사투리가 짙어진다. 화가 나면 목소리를 키우기보다 말이 짧아진다.</p><blockquote>“아입니더. 제가 하겠심더.”<br>“와 그라십니까. 가만 있으이소.”<br>“니는 뒤에 있어라. 이거 내 일이다.”</blockquote>
+<h3>업무</h3><p>해담로지스 현장관리 책임자이자 해진회 현장 실무 담당. 행동 인력 관리, 화물 인수·이동, 부산항 일대의 인원 배치와 현장 문제 수습을 맡는다. 사고가 나면 먼저 해결한 뒤 책임 소재를 정리한다. 부하를 공개적으로 모욕하기보다 우선 일을 수습하고 나중에 따로 이야기한다. 조헌에게 업무의 목적과 기한을 전달받으면 세부 현장 운영은 직접 판단한다. 단순한 행동대원이 아니라 사람과 물류를 움직이는 실무 책임자다.</p>
+<h3>취향과 특이사항</h3><p>단팥빵과 흰 우유, 비 오는 날, 조용한 공간, 꽃과 식물을 좋아한다. 스트레스를 받으면 단팥빵과 우유를 사 먹는다. 시끄러운 술자리나 클럽보다 사람이 적은 곳을 선호한다. 은혜를 생색내며 갚으라 하는 사람, 꽃을 훼손하는 행동, 가까운 이를 협박 수단으로 삼는 일, 약자를 괴롭히거나 책임을 남에게 떠넘기는 태도를 싫어한다.</p><p>검은색이나 어두운 셔츠를 즐겨 입는다. 발달한 상체가 얇은 셔츠 위로 도드라지는 것을 은근히 신경 써 니플 패치를 붙이고 다니며, 없으면 일반 반창고로 대신한다. 이유를 물으면 진지하게 “보이면 민망하지 않습니까.”라고 답한다. 단추와 간단한 옷 수선도 잘해 주변 사람의 떨어진 단추를 말없이 달아주곤 한다.</p>
+<h3>관계 성향</h3><p>상대의 성별을 크게 따지지 않는다. 남을 챙기고 보호하는 데 익숙하지만 자신이 돌봄을 받는 상황에는 약하다. 치료를 받거나 밥을 챙겨 주고 귀가를 확인해 주는 사소한 배려에도 예상보다 쉽게 흔들린다. 수동적이거나 유약한 인물은 아니며, 상대가 위험하면 앞에 나서 직접 결정하고 행동한다.</p></template>
+<template id="profile-SOUJI"><div class="dossier-facts"><div><small>AGE / HEIGHT</small><b>38세 · 195cm</b></div><div><small>AFFILIATION</small><b>신조회 직계 · 이치노세조</b></div><div><small>POSITION / ORIGIN</small><b>조직장 · 후쿠오카 하카타</b></div></div>
+<h3>외형</h3><p>검은 머리와 적갈색 눈. 키가 크고 근육질인 체격으로, 고급스러운 검은 정장을 즐겨 입는다. 문신은 하지 않았다.</p>
+<h3>인물상</h3><p>여유롭고 머리 회전이 빠르며 어떤 상황에서도 태도를 잃지 않는다. 독설가이자 사디스틱한 성격으로, 상대를 도발해 궁지에 몰아넣는 일을 즐긴다. 냉혹하고 손익 계산에 능하지만 자신만의 미학이나 원칙에 어긋나는 일에는 손해를 보더라도 따르지 않는다. 극도로 자기만의 이치와 미학을 지녔으나 선한 사람은 아니다.</p>
+<h3>경력과 조직 내 위치</h3><p>한때 하카타의 반그레였으며, 신죠회 회장 신죠 세이이치로에게 발탁되어 부자 간의 잔을 나누었다. 이후 신성회 산하 키리우 조직에서 조직장을 숙청하고 조직을 장악했다. 조직을 재편해 이치노세 조직으로 새롭게 출범시켰고, 현재 하카타를 거점으로 한국과의 거래를 맡는다.</p><p>이치노세 조직은 신죠회의 직계 산하로 불린다. 키리우 조직을 장악하고 재편했다는 경력도 함께 유지한다.</p>
+<h3>말투와 관계 성향</h3><p>평소에는 표준어를 쓰며, 화가 나면 하카타 사투리가 섞인다. 1인칭은 ‘나’. 여성 관계는 자유분방하며 연애와 성욕은 별개라고 생각한다. 기본적으로 타인에게 집착하지 않고 누구에게도 자신의 가치관을 굽히지 않는다.</p></template>
+<template id="profile-JOHEON"><div class="dossier-facts"><div><small>AGE / HEIGHT</small><b>35세 · 193cm / 108kg</b></div><div><small>AFFILIATION</small><b>해진회 / 해담로지스</b></div><div><small>POSITION</small><b>실장 · 대외협력실장</b></div></div>
+<h3>외형과 기본 정보</h3><p>본명 조헌. 애칭은 허니. 부산 출신이며 억양에 사투리가 묻어난다. 해진회 실장으로 대외 접촉, 일본 측 연락과 협상, 내부 업무 조율을 맡는다. 주 활동 지역은 부산과 후쿠오카·하카타이며 성격 유형은 ESTP.</p>
+<h3>과거</h3><p>형편이 넉넉하지 않은 집에서 자라 일찍부터 돈 버는 일에 관심이 많았다. 학교를 졸업한 뒤 물류창고와 유흥업소에서 일했고 군 복무 후 해진회와 연결된 업장에서 조직 인물들과 가까워졌다. 사람을 만나고 분쟁을 정리하는 일을 돕다가 점차 조직 실무를 맡으며 자리를 잡았다. 조직에 들어온 이유를 거창하게 포장하지 않는다. 일반 직장보다 돈이 되고 능력을 인정받았으며, 자신이 결정할 수 있는 일이 늘어나는 점이 좋았다.</p><p>일본어를 배운 계기는 일본 여성에게 잘 보이고 싶어서였다. 마음먹은 일에 집요하게 매달리는 성격으로 회화 실력이 빠르게 늘었고, 지금은 일본 측 협상과 실무 대화도 맡는다.</p><blockquote>“여자 꼬시려고 배웠지. 사람 인생이 어디서 풀릴지 모른다니까.”</blockquote>
+<h3>일 성향</h3><p>과정보다 실효성과 결과를 중시하는 실무형. 겉치레와 불필요한 보고는 귀찮아하지만 금액·조건·담당자처럼 책임이 걸린 부분은 꼼꼼하게 확인한다. 분위기가 좋다는 이유로 불리한 조건에 동의하지 않는다. 부하에게 방법까지 간섭하기보다 할 일과 기한을 분명하게 알려준다. 실수보다 은폐와 책임 전가를 싫어한다. 인정하지 않은 사람의 지시에는 웃으며 모순을 짚고 조건을 되물어 비협조적으로 굴 수 있다. 실력과 책임감을 인정한 사람에게는 필요한 협조를 한다.</p>
+<h3>말투와 가족</h3><p>느긋하고 능청스러운 부산 말투. 거래 상대에게는 존댓말을 쓰면서 농담과 빈정거림을 섞는다. 편한 사람 앞에서 사투리가 짙어진다. 일본 측과 대화할 때는 자연스러운 일본어를 쓴다. 웃는 얼굴로 욕을 잘하며, 정말 선을 그을 때는 웃음과 곁말이 줄고 표현이 직접적으로 바뀐다.</p><p>부모는 부산에 살고 있으며 형제자매 없는 외동아들이다. 절연한 사이는 아니어서 생활비를 보내고 명절이나 생일에 얼굴을 비춘다. 부모에게는 물류회사 실장으로 일한다고 말한다. 어머니가 식사와 생활을 챙기려 들면 결국 잔소리를 듣는다.</p>
+<h3>기타</h3><ul><li>‘헌이’에서 비롯된 ‘허니’라는 애칭에 익숙하며, 놀림에도 뻔뻔하게 받아친다.</li><li>모르는 일본어 표현은 자존심 세우지 않고 묻지만, 아는 척하며 틀리게 가르치는 사람은 오래 놀린다.</li><li>배고픈 상태로 회의가 길어지는 것을 싫어한다. 단 커피를 좋아하고, 쓴 커피가 어른스럽다는 말에는 음료로 나이를 증명할 필요가 있냐고 되묻는다.</li><li>머리끈을 잃어버려 차와 사무실에 여분을 둔다. 체격에 맞는 옷을 찾기 번거로워 마음에 드는 옷은 여러 벌 사며, 옷과 신발 관리는 잘한다.</li><li>혼잣말로 구시렁거리며, 사람 앞에서는 웃고 넘긴 뒤 문을 닫자마자 작게 욕을 하기도 한다.</li><li>외모 칭찬에는 부끄러워하지 않지만 “너 믿고 맡긴다”는 말은 신뢰를 빌미로 책임을 넘기는 상황인지 먼저 살핀다.</li></ul><p>사람들과 금방 가까워져도 모두를 자기 사람으로 여기지는 않는다. 실제로 믿고 의지하는 사람은 많지 않다.</p></template>
+<template id="profile-MITSURU"><div class="dossier-facts"><div><small>AGE / HEIGHT</small><b>28세(가칭) · 185cm</b></div><div><small>NAME / AFFILIATION</small><b>하나토 미츠루 · 카토 코우루 표기 병기</b></div><div><small>POSITION</small><b>와카가시라 / 2인자</b></div></div>
+<h3>외형</h3><p>밝은 갈색 머리를 탈색한 꿀색 미디엄 헤어와 새벽빛이 도는 건강한 피부. 살짝 올라간 연한 갈색 삼백안, 눈 밑의 옅은 다크서클이 특징이다. 입가에는 늘 가벼운 미소가 있지만 눈빛에는 따뜻함이 부족하다. 185cm의 탄탄한 근육질 체격. 왼쪽 가슴에 붉은 저승꽃 문신, 한쪽 귀에 삼연 피어싱을 했다. 움직이기 편한 옷을 선호하고 가슴 주머니에 선글라스를 꽂아 두기도 한다.</p>
+<h3>성격</h3><p>쾌활하고 사람을 잘 따르며 누구에게든 자연스럽게 스며드는 가벼운 남자. 사교성은 본래 기질이면서 스스로 활용하는 무기다. 머리 회전이 빠르고 근본은 냉정하고 냉혹하다. 적대자에 대한 제재와 폭력에 주저함이 없고, 그 순간에도 웃음과 평소의 가벼운 말투를 유지한다. 표정만으로 진심이나 기분을 읽기 어렵다.</p>
+<h3>조직과 충성</h3><p>조직장에게 깊이 심취해 있으며 자기 목숨도 아끼지 않을 정도로 충성한다. 지략·무력·냉혹한 판단력과 인심을 장악하는 능력으로 젊은 와카가시라 자리에 올랐다. 조직장 자리를 노리지 않으며 존경하는 조직장 곁에 있는 현재의 위치를 좋아한다. “조장”에게는 이름 뒤에 조장을 붙여 부른다.</p>
+<h3>말투와 호칭</h3><p>1인칭은 ‘나’. 표준어를 기본으로 부드럽게 어미를 늘이고 농담을 섞는다. 위험하거나 제재하는 상황에서도 밝고 친근한 말투가 변하지 않는다. 타인은 보통 이름 대신 ‘그대’, ‘당신’ 등으로 부른다. 매우 마음에 드는 상대에게만 이름을 반말로 부르며, 이름을 부르는 것 자체가 특별 대우다.</p><blockquote>“아, 그렇구나? 헤, 너는 참 재미있네.”<br>“음… 나? 아니야, 그렇게 무서운 사람은 아니라고.”<br>“아, 미안해? 여기가 우리 영역이구나…… 이대로 바이바이할 수는 없어. 손가락이라도 좀 받아 두지 마~”</blockquote>
+<h3>과거</h3><p>어린 시절 폭력적인 아버지의 지배 아래 자랐지만 어머니의 바람에 따라 힘들어도 웃음을 잃지 않았다. 19세에 어머니를 잃은 뒤 집을 떠나 각지를 떠돌았다. 현재의 조직장을 만나 그의 강함을 동경해 조직에 들어왔다. ‘하토’는 어머니의 성이며, 성인이 된 뒤 아버지의 성을 버리고 어머니의 성을 선택했다.</p>
+<h3>연애 성향</h3><p>특별한 상대에게는 극단적으로 관대하며 사랑과 친절을 아낌없이 쏟는다. 사랑 자체는 순수하지만 독점욕과 집착심이 강하고 상대에게도 자신만을 원한다. 애정 표현 안에는 위험한 지배욕이 숨어 있다.</p></template>
+<template id="profile-KANG"><div class="dossier-facts"><div><small>AGE / HEIGHT</small><b>38세 · 183cm</b></div><div><small>POSITION</small><b>한일 조직범죄 전담수사팀 검사</b></div><div><small>CASE</small><b>밀거래·자금 흐름·조직 유착</b></div></div>
+<h3>외형</h3><p>이름은 강묵현(姜默賢), 일본 측 호칭은 ‘カン’. 검은 머리와 짙은 회색 눈. 긴 팔다리와 잔근육이 잡힌 슬렌더 체형, 날카로운 눈매와 선명한 턱선. 피곤해도 어두운 정장과 잘 다린 셔츠를 고집한다.</p>
+<h3>성격과 수사 방식</h3><p>까칠한 완벽주의자. 직책이나 평판보다 근거를 믿으며 납득되지 않으면 윗사람에게도 질문한다. 실수보다 은폐와 책임 회피를 싫어하고 자신의 잘못은 인정한다. 맡긴 일도 재확인하며 개인 물건을 허락 없이 만지는 것을 싫어한다. 진술과 기록을 반복 대조하고 특히 초기 증거 확보와 진술이 바뀐 경위에 예민하다. 근거 없이 결과를 장담하지 않으며 자신의 약속과 판단에 책임을 진다.</p>
+<h3>과거</h3><p>고등학생 때 아버지가 작업 중 크게 다쳤지만 기업의 증거 은폐와 증인 회유, 부실 수사 때문에 산재를 인정받지 못했다. 회사의 책임을 직접 밝히겠다고 결심한 것이 검사가 된 계기다. 당시 자료를 지금도 보관하고 있다.</p>
+<h3>말투와 가족</h3><p>여동생을 제외한 모두에게 존댓말을 쓴다. 짧고 구체적인 질문과 정중한 독설이 특징이다. 화가 날수록 목소리가 낮아지고 말이 느려진다. 가까워져도 쉽게 말을 놓지 않는다. 여덟 살 어린 여동생에게만 반말을 하며, 동생 앞에서는 잔소리와 유치한 실랑이가 늘어난다. 필요한 것을 기억했다가 사다 주지만 고맙다는 말을 들으면 “잘 쓰면 됐어”라며 넘긴다.</p>
+<h3>기타</h3><ul><li>로스쿨 참관 수업에서 유명 교수에게 반박하다 강단에 올라 자료를 정리한 전적이 있다. 수업 종료 뒤 교수에게 수업을 돌려 달라는 말을 듣고 귀까지 빨개졌다. ‘강 교수님’이라는 별명을 질색한다.</li><li>예상하지 못한 칭찬이나 다정한 말에는 귀부터 빨개지고, 지적받으면 더 까칠해진다. 낯간지러운 애정 표현 대신 필요한 것을 챙겨 주거나 식사·귀가를 확인한다.</li><li>책상 위 개인 물건은 놓이는 자리가 정해져 있다. 혼자 살며 술은 필요한 자리에서만 마시고 담배는 피우지 않는다.</li></ul></template>
+<template id="profile-SETO"><div class="dossier-facts"><div><small>AGE / HEIGHT</small><b>35세 · 185cm</b></div><div><small>POSITION</small><b>경시청 국제범죄대책과 수사관</b></div><div><small>DEPLOYMENT</small><b>하카타 잠입</b></div></div>
+<h3>외형</h3><p>푸른 회색 눈과 입가의 점, 검은 미디엄 레이어 헤어. 머리를 내리거나 뒤에서 짧게 묶는다. 어두운 정장을 즐겨 입으며 등에는 반야의 와조리가 새겨져 있어 평소에는 옷 안에 숨긴다.</p>
+<h3>성격</h3><p>평소에는 온화하고 말수가 적다. 상대가 말을 더듬어도 재촉하지 않고 기다리며, 동료가 피곤하면 조용히 교대를 제안한다. 자신의 수면 부족을 지적받으면 업무 이야기로 화제를 돌린다. 야쿠자가 얽히면 원한을 억누르기 어려워 평소라면 들을 만한 사정까지 무시할 때가 있다.</p>
+<h3>과거와 수사 목적</h3><p>수사의 원한을 사서 가족을 잃었다. 부모와 동생 모두 야쿠자의 보복으로 살해당했다. 사건 이후 웃는 일이 줄었고 악몽과 플래시백으로 잠이 얕아졌다. 실행범뿐 아니라 야쿠자 자체를 전멸시키고 싶다는 증오를 품는다. 반야 와보리는 잠입 신분을 의심받지 않기 위한 것이자 원수를 반드시 갚겠다는 결심을 새긴 표식이다.</p>
+<h3>잠입 경위와 현재 임무</h3><p>이치노세 조직과 교류가 있는 수사 협력자를 소개받아 ‘하카타를 떠돌던 전 용병’으로 조직에 들어갔다. 조직이 한국 측 손님을 맞기 위해 인력을 늘리는 시점을 이용해 손님의 동행자로 거래 현장에 들어갈 기회를 엿본다. 이번에는 신죠회의 직계 2차 조직인 이치노세 조직이 한국 측과 비밀 거래를 한다는 정보를 확인하기 위해 야쿠자로 잠입했다.</p>
+<h3>강묵현과 공조</h3><p>한국 검사 강묵현과 이전 업무 협력 경험이 있어 서로의 실력을 잘 안다. 이번에도 이해관계가 맞는 곳에서는 협력하지만, 자국의 비밀 임무를 숨긴 채 거래품 확보와 수사 주도권을 놓고 경쟁한다.</p>
+<h3>말투와 기타</h3><p>1인칭은 ‘나’. 표준어로 차분하고 짧게 말하며 초면에는 존댓말을 쓴다. 친한 사람에게는 걱정이 앞서는 모습이 드러난다. 한국어 인사와 안내, 간단한 일상 회화가 가능하다. 잠입 현장에서는 경호원으로 일하며 한국인 손님에게 배웠다고 설명한다. 예전에는 담배를 자주 피웠지만 가족을 잃은 뒤 ‘전멸할 때까지 죽을 수 없다’고 생각해 평소에는 금연한다. 임무나 강한 스트레스 상황에서는 피우기도 한다. 술은 어느 정도 마시지만 과음하면 취한다. 가족을 다시 사건에 끌어들이는 것이 두려워 연애를 피한다. 연인이 생기면 온화하게 대하지만 독점욕과 과보호 성향이 강하다. 일에 몰두해도 연락을 빼놓지 않고 상대의 행동을 지나치게 신경 써 과거 연인에게 무겁다는 말을 듣곤 했다.</p></template>
+<footer class="footer"><span><b>BORDERLINE</b> / JOINT INVESTIGATION ARCHIVE</span><span>UNAUTHORIZED ACCESS WILL BE RECORDED · 2026</span></footer></div><script>
+(()=>{
+ const root=document.querySelector('[data-motion-root]');
+ if(!root)return;
+ const targets=[root,...root.querySelectorAll('.person')];
+ if(!('IntersectionObserver' in window)){targets.forEach(el=>el.classList.add('is-visible'));return;}
+ const observer=new IntersectionObserver((entries)=>entries.forEach(entry=>{
+  if(entry.isIntersecting){entry.target.classList.add('is-visible');observer.unobserve(entry.target);}
+ }),{threshold:.14,rootMargin:'0px 0px -5% 0px'});
+ targets.forEach(el=>observer.observe(el));
+})();
+</script><script>
+(()=>{
+ const overlay=document.getElementById('profile-overlay');
+ if(!overlay)return;
+ const title=document.getElementById('dossier-title'),meta=document.getElementById('dossier-meta'),id=document.getElementById('dossier-id');
+ const content=document.getElementById('dossier-content'),scroll=document.getElementById('dossier-scroll'),image=document.getElementById('dossier-image');
+ const closeButton=overlay.querySelector('.dossier-close');
+ let lastTrigger=null;
+ function openProfile(card){
+  const key=card.dataset.profile,template=document.getElementById('profile-'+key);
+  if(!template)return;
+  lastTrigger=card;
+  title.textContent=card.querySelector('h3').textContent;
+  meta.textContent=card.querySelector('.class-tag').textContent+' / '+card.querySelector('.person-id').textContent;
+  id.textContent='PERSONNEL FILE / '+key+' / RESTRICTED';
+  content.innerHTML=template.innerHTML;
+  image.innerHTML='';
+  const portrait=card.querySelector('.portrait');
+  if(portrait)image.appendChild(portrait.cloneNode(true));
+  overlay.hidden=false;overlay.setAttribute('aria-hidden','false');document.body.classList.add('dossier-open');
+  requestAnimationFrame(()=>overlay.classList.add('is-open'));
+  scroll.scrollTop=0;closeButton.focus();
+ }
+ function closeProfile(){
+  overlay.classList.remove('is-open');overlay.setAttribute('aria-hidden','true');document.body.classList.remove('dossier-open');
+  setTimeout(()=>{overlay.hidden=true;image.innerHTML='';if(lastTrigger)lastTrigger.focus();},320);
+ }
+ document.querySelectorAll('.person[data-profile]').forEach(card=>{
+  card.addEventListener('click',()=>openProfile(card));
+  card.addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();openProfile(card);}});
+ });
+ closeButton.addEventListener('click',closeProfile);
+ overlay.addEventListener('click',event=>{if(event.target===overlay)closeProfile();});
+ document.addEventListener('keydown',event=>{if(!overlay.hidden&&event.key==='Escape')closeProfile();});
+})();
+</script><script>
+(()=>{const button=document.querySelector('.sound-toggle'),audio=document.querySelector('.locale-audio');if(!button||!audio)return;button.addEventListener('click',async()=>{if(audio.paused){try{await audio.play();button.textContent='♫ BGM ON';button.classList.add('is-playing')}catch(e){button.textContent='ADD bgm-korean.mp3'}}else{audio.pause();button.textContent='♫ BGM OFF';button.classList.remove('is-playing')}})})();
+</script></body></html>
