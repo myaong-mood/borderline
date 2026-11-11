@@ -322,7 +322,7 @@ main{background-color:#e7ecee;background-image:repeating-linear-gradient(0deg,rg
 @keyframes faction-scan{0%{top:-2px;opacity:0}12%{opacity:.9}90%{opacity:.5}100%{top:100%;opacity:0}}
 @media(max-width:760px){.network-card .faction-visual{height:142px}}
 @media(prefers-reduced-motion:reduce){.faction-visual:before{animation:none;display:none}.faction-visual img{transition:none}}
-.person:before{display:none!important}.agency-banner{position:relative;margin:24px 0 30px;overflow:hidden;height:clamp(170px,25vw,310px);border:1px solid #839199;background:#10171c;box-shadow:0 12px 28px rgba(24,34,40,.16)}.agency-banner:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(11,17,22,.04),transparent 45%,rgba(12,18,22,.2)),linear-gradient(0deg,rgba(9,14,18,.58),transparent 38%);pointer-events:none}.agency-banner img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 55%;filter:saturate(.74) contrast(1.05)}.agency-banner figcaption{position:absolute;z-index:2;left:16px;bottom:13px;padding:6px 9px;border-left:2px solid #cf3037;background:rgba(12,18,23,.75);color:#e1e6e7;font:9px var(--mono);letter-spacing:.13em}.agency-scan{position:absolute;z-index:2;left:0;right:0;top:-2px;height:2px;background:linear-gradient(90deg,transparent,#e1383d,transparent);box-shadow:0 0 12px #df3038;animation:agency-scan 7s linear infinite;pointer-events:none}@keyframes agency-scan{0%{top:0;opacity:0}8%{opacity:.8}92%{opacity:.7}100%{top:100%;opacity:0}}@media(max-width:760px){.agency-banner{height:170px;margin:19px 0 23px}.agency-banner figcaption{left:9px;bottom:9px;font-size:7px;letter-spacing:.08em}}@media(prefers-reduced-motion:reduce){.agency-scan{animation:none;display:none}}</style>
+.person:before{display:none!important}.agency-banner{position:relative;margin:24px 0 30px;overflow:hidden;height:clamp(170px,25vw,310px);border:1px solid #839199;background:#10171c;box-shadow:0 12px 28px rgba(24,34,40,.16)}.agency-banner:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(11,17,22,.04),transparent 45%,rgba(12,18,22,.2)),linear-gradient(0deg,rgba(9,14,18,.58),transparent 38%);pointer-events:none}.agency-banner img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 55%;filter:saturate(.74) contrast(1.05)}.agency-banner figcaption{position:absolute;z-index:2;left:16px;bottom:13px;padding:6px 9px;border-left:2px solid #cf3037;background:rgba(12,18,23,.75);color:#e1e6e7;font:9px var(--mono);letter-spacing:.13em}.agency-scan{position:absolute;z-index:2;left:0;right:0;top:-2px;height:2px;background:linear-gradient(90deg,transparent,#e1383d,transparent);box-shadow:0 0 12px #df3038;animation:agency-scan 7s linear infinite;pointer-events:none}@keyframes agency-scan{0%{top:0;opacity:0}8%{opacity:.8}92%{opacity:.7}100%{top:100%;opacity:0}}@media(max-width:760px){.agency-banner{height:170px;margin:19px 0 23px}.agency-banner figcaption{left:9px;bottom:9px;font-size:7px;letter-spacing:.08em}}@media(prefers-reduced-motion:reduce){.agency-scan{animation:none;display:none}}.portrait.has-photo .photo-placeholder{display:none!important}\n@media(max-width:760px){.portrait img{animation:none!important;transform:none!important;object-position:center 22%!important}.person:hover .portrait img{transform:none!important}}\n</style>
 </head>
 <body><div class="shell">
 <div class="topline"><span>日韓合同捜査資料 / BUSAN — HAKATA — TOKYO</span><span class="live">● LIVE FILE // ACCESS LOGGED</span><a class="lang-switch" href="BORDERLINE_casefile.html" aria-label="한국語版へ">한국어 ↗</a></div>
@@ -408,8 +408,15 @@ main{background-color:#e7ecee;background-image:repeating-linear-gradient(0deg,rg
 (()=>{document.querySelectorAll('.portrait').forEach(frame=>{
  const primary=Array.from(frame.children).find(el=>el.tagName==='IMG');
  const mirror=frame.querySelector('.photo-placeholder .portrait-mirror');
- if(!primary||!mirror)return;
- const sync=()=>{const src=primary.getAttribute('src');if(src)mirror.setAttribute('src',src);mirror.alt=primary.alt||''};
+ if(!primary)return;
+ const sync=()=>{
+  const src=primary.getAttribute('src');
+  if(src&&mirror){mirror.setAttribute('src',src);mirror.alt=primary.alt||''}
+  frame.classList.remove('has-photo');
+  if(primary.complete&&primary.naturalWidth>0)frame.classList.add('has-photo');
+ };
+ primary.addEventListener('load',()=>frame.classList.add('has-photo'));
+ primary.addEventListener('error',()=>frame.classList.remove('has-photo'));
  sync();
  new MutationObserver(sync).observe(primary,{attributes:true,attributeFilter:['src','alt']});
 })})();
