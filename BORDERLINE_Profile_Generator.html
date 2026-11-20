@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#080d12">
+<title>BORDERLINE · Personnel Profile Generator</title>
+<style>
+:root{color-scheme:dark;--bg:#080d12;--panel:#101920;--line:#34434c;--muted:#9aabb3;--text:#e8edf0;--red:#df5962;--blue:#86bdd4;--green:#94c6a5}
+*{box-sizing:border-box}
+html{background:var(--bg)}
+body{margin:0;background:radial-gradient(ellipse at 50% -12%,#243744 0,#111a21 37%,#080d12 78%);color:var(--text);font:15px/1.55 Arial,"Noto Sans KR","Malgun Gothic",sans-serif;min-height:100vh}
+button,input,textarea{font:inherit}
+button{cursor:pointer}
+.shell{width:min(1480px,100%);margin:auto;padding:24px clamp(16px,3vw,42px) 48px}
+.topline{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:6px 2px 16px;border-bottom:1px solid var(--line);color:var(--muted);font:11px/1.4 "Courier New",monospace;letter-spacing:.14em}
+.brand{color:#dce6ea;font-weight:bold}
+.signal{color:var(--green)}
+.intro{display:flex;justify-content:space-between;align-items:end;gap:24px;padding:26px 2px 22px}
+h1{margin:0;color:#f1f3f4;font:700 clamp(25px,4vw,38px)/1.15 Georgia,"Noto Serif KR",serif;letter-spacing:.025em}
+h1 span{color:var(--red)}
+.intro p{max-width:520px;margin:0;color:#aab8bf;font-size:14px}
+.layout{display:grid;grid-template-columns:minmax(310px,430px) minmax(0,1fr);gap:18px;align-items:start}
+.panel{min-width:0;border:1px solid #34434c;background:rgba(10,15,20,.88);box-shadow:0 16px 38px #0005}
+.panel-head{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:13px 15px;border-bottom:1px solid var(--line);background:#121c23}
+.panel-head h2{margin:0;color:#dce5e9;font:700 12px "Courier New",monospace;letter-spacing:.14em}
+.panel-head small{color:#81939c;font:10px "Courier New",monospace;letter-spacing:.1em}
+.form{padding:12px}
+fieldset{min-width:0;margin:0 0 10px;padding:12px;border:1px solid #26343c;background:#0c1217}
+legend{padding:0 7px;color:#c7d3d9;font:700 11px "Courier New",monospace;letter-spacing:.09em}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.field{min-width:0;margin-bottom:10px}
+.field:last-child{margin-bottom:0}
+.field.full{grid-column:1/-1}
+label{display:block;margin:0 0 5px;color:#a9b7bd;font-size:13px}
+.hint{display:block;margin-top:4px;color:#71818a;font-size:11px}
+input,textarea{display:block;width:100%;border:1px solid #35444c;border-radius:2px;background:#080d11;color:#eef1f3;padding:9px 10px;outline:none}
+input{height:40px}
+textarea{min-height:78px;resize:vertical;line-height:1.5}
+input:focus,textarea:focus{border-color:#86bdd4;box-shadow:0 0 0 2px #86bdd420}
+.actions{display:flex;flex-wrap:wrap;gap:8px;padding:2px 12px 13px}
+.btn{min-height:40px;border:1px solid #50616b;background:#131e25;color:#e8edf0;padding:8px 13px;font-size:13px;transition:.18s}
+.btn:hover{border-color:#a0c7d6;background:#192932}
+.btn.primary{border-color:#b73b47;background:#281419;color:#fff}
+.btn.primary:hover{background:#451b22}
+.btn.quiet{color:#b9c4c9}
+.preview-panel{overflow:hidden}
+.preview-wrap{padding:16px;background:#080d12}
+.preview-frame{display:block;width:100%;height:min(78vh,920px);min-height:620px;border:1px solid #53636c;background:#080d12}
+.code-head{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 14px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#121c23}
+.code-head strong{color:#dce5e9;font:700 11px "Courier New",monospace;letter-spacing:.12em}
+.code-head span{color:#82939b;font-size:11px}
+.code-wrap{padding:12px}
+#output{width:100%;min-height:340px;border-color:#2e3b43;background:#060a0e;color:#cbd5da;font:12px/1.55 "SFMono-Regular",Consolas,monospace;tab-size:2}
+.note{padding:0 14px 14px;color:#82939b;font-size:12px}
+.toast{position:fixed;left:50%;bottom:22px;z-index:10;transform:translate(-50%,12px);padding:10px 15px;border:1px solid #476153;background:#101c17;color:#d8f0df;font-size:13px;opacity:0;pointer-events:none;transition:.2s}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+@media(max-width:900px){.layout{grid-template-columns:1fr}.intro{display:block}.intro p{margin-top:10px}.preview-frame{height:780px}}
+@media(max-width:520px){.shell{padding:14px 10px 30px}.topline{font-size:9px}.grid{grid-template-columns:1fr}.field.full{grid-column:auto}.preview-wrap{padding:8px}.preview-frame{min-height:660px;height:76vh}.code-head{align-items:flex-start;flex-direction:column}.actions .btn{flex:1}}
+</style>
+</head>
+<body>
+<main class="shell">
+  <div class="topline"><span class="brand">BORDERLINE / PERSONNEL ARCHIVE</span><span class="signal">● LOCAL HTML BUILDER</span></div>
+  <header class="intro">
+    <h1>인물 프로필 <span>생성기</span></h1>
+    <p>정보를 입력하면 강묵현 프로필과 같은 인라인 HTML이 만들어집니다. 미리보기에서 확인하고, 생성된 코드를 복사해 사용하세요.</p>
+  </header>
+  <div class="layout">
+    <section class="panel" aria-label="프로필 입력">
+      <div class="panel-head"><h2>01 / PROFILE INPUT</h2><small>입력 즉시 반영</small></div>
+      <form id="profileForm" class="form" autocomplete="off">
+        <fieldset>
+          <legend>IDENTITY / 신원</legend>
+          <div class="grid">
+            <div class="field"><label for="name">이름</label><input id="name" value="강묵현"></div>
+            <div class="field"><label for="hanja">한자·외국어 표기</label><input id="hanja" value="姜默賢"></div>
+            <div class="field"><label for="age">나이</label><input id="age" value="38세"></div>
+            <div class="field"><label for="height">키</label><input id="height" value="183cm"></div>
+            <div class="field full"><label for="profession">직업 / 소속</label><input id="profession" value="대한민국 검사 · 한일 공조 수사 잠입 요원"></div>
+            <div class="field full"><label for="assignment">담당·사건</label><input id="assignment" value="한일 밀거래 · 자금 흐름 · 기업과 범죄조직의 유착 추적"></div>
+            <div class="field full"><label for="case">파일 번호 / 상단 분류</label><input id="case" value="K-INV-01 / SEOUL JOINT TASK FORCE"></div>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>COVER ID / 위장 신분</legend>
+          <div class="grid">
+            <div class="field"><label for="coverName">위장 이름</label><input id="coverName" value="강서준"></div>
+            <div class="field"><label for="callsign">호칭</label><input id="callsign" value="서준 · 준"></div>
+            <div class="field"><label for="coverRole">대외 직무</label><input id="coverRole" value="회계 · 세무 실무"></div>
+            <div class="field"><label for="company">회사·조직</label><input id="company" value="해담로지스"></div>
+            <div class="field"><label for="placement">잠입 기간</label><input id="placement" value="잠입 6개월"></div>
+            <div class="field"><label for="formerCareer">이전 이력</label><input id="formerCareer" value="회계·세무"></div>
+            <div class="field full"><label for="undercover">잠입 업무·위장 설정</label><textarea id="undercover">장부와 정산, 세무 자료를 다루며 조직의 거래 구조와 자금 흐름을 살핀다. 검사라는 본래 신분과 실제 임무는 비공개.</textarea></div>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>APPEARANCE / 인상</legend>
+          <div class="grid">
+            <div class="field full"><label for="image">인물 이미지 주소</label><input id="image" value="https://raw.githubusercontent.com/myaong-mood/borderline/main/IMG_6246.jpeg" placeholder="https://.../image.jpg"><span class="hint">공개 이미지 주소 또는 프로필 HTML에서 접근 가능한 상대 경로</span></div>
+            <div class="field full"><label for="appearance">외형 설명</label><textarea id="appearance">검은 머리와 짙은 회색 눈. 마른 듯 보이지만 군살 없이 단단하게 잡힌 체격과 긴 팔다리를 지녔다. 날카로운 눈매와 선이 분명한 턱이 인상을 단단하게 만든다. 어두운 정장과 다림질된 셔츠를 즐겨 입는다.</textarea></div>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>RESTRICTED FILE / 상세 기록</legend>
+          <div class="field"><label for="personality">성격</label><textarea id="personality">까다롭고 빈틈없는 완벽주의자. 위계나 명성보다 증거를 신뢰하며, 납득되지 않는 지시에는 상급자에게도 이유를 묻는다. 은폐와 책임 전가를 싫어하고 자신의 실수는 인정한다. 맡은 일은 끝까지 책임진다.</textarea></div>
+          <div class="field"><label for="history">과거</label><textarea id="history">고등학생 시절 아버지가 산업 현장에서 다쳤다. 회사는 증거를 감추고 목격자들을 압박했으며, 부실한 조사 끝에 산업재해는 인정받지 못했다. 그 일은 강묵현이 검사가 되기로 결심한 계기가 됐다. 당시의 자료를 지금도 보관하고 있다.</textarea></div>
+          <div class="field"><label for="habits">말투·수사·습관</label><textarea id="habits">여덟 살 어린 여동생을 제외하면 누구에게나 존댓말을 쓴다. 질문은 짧고 정확하며, 정중한 말투로 뼈 있는 말을 건넨다. 화가 날수록 목소리가 낮고 느려진다. 진술과 기록을 교차 확인하며, 최초 증거와 달라진 진술을 특히 꼼꼼하게 살핀다. 예상하지 못한 칭찬이나 친절에는 쉽게 얼굴이 붉어진다. 애정은 챙겨 묻고, 먹을 것을 챙기고, 귀가를 확인하는 방식으로 드러낸다.</textarea></div>
+          <div class="field"><label for="personal">기타·가족·개인 기록</label><textarea id="personal">혼자 살며 필요한 때만 술을 마시고 담배는 피우지 않는다. 책상 위 물건은 정해진 자리에 둔다. 여동생 앞에서는 잔소리가 늘고 사소한 일로 투닥거리기도 한다. 로스쿨 특강에 나간 뒤 ‘강 교수님’이라는 별명을 얻었지만 본인은 그 호칭을 달가워하지 않는다.</textarea></div>
+          <div class="field"><label for="tags">키워드 태그 (쉼표로 구분)</label><input id="tags" value="완벽주의, 증거 우선, 원칙주의, 책임감"></div>
+        </fieldset>
+      </form>
+      <div class="actions">
+        <button class="btn primary" id="copyBtn" type="button">HTML 복사</button>
+        <button class="btn" id="downloadBtn" type="button">.html 저장</button>
+        <button class="btn quiet" id="resetBtn" type="button">기본값 복원</button>
+      </div>
+    </section>
+    <section class="panel preview-panel" aria-label="미리보기 및 HTML">
+      <div class="panel-head"><h2>02 / LIVE PREVIEW</h2><small>원본 BORDERLINE 레이아웃</small></div>
+      <div class="preview-wrap"><iframe class="preview-frame" id="preview" title="생성된 프로필 미리보기"></iframe></div>
+      <div class="code-head"><strong>03 / GENERATED INLINE HTML</strong><span>전체 선택 후 직접 수정도 가능합니다.</span></div>
+      <div class="code-wrap"><textarea id="output" spellcheck="false" aria-label="생성된 HTML 코드"></textarea></div>
+      <div class="note">생성 코드는 스타일을 포함한 HTML 조각입니다. 이미지 주소는 공유할 곳에서도 열리는 공개 주소를 사용하세요.</div>
+    </section>
+  </div>
+</main>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>
+(function(){
+  var defaults={};
+  document.querySelectorAll("#profileForm input,#profileForm textarea").forEach(function(el){defaults[el.id]=el.value;});
+  var ids=["name","hanja","age","height","profession","assignment","case","coverName","callsign","coverRole","company","placement","formerCareer","undercover","image","appearance","personality","history","habits","personal","tags"];
+  function val(id){var el=document.getElementById(id);return el?el.value.trim():"";}
+  function esc(s){return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#39;");}
+  function imageUrl(s){s=String(s||"").trim();if(!s)return "";if(/^(https?:\/\/|data:image\/|\.{0,2}\/|\/)/i.test(s))return s;return "";}
+  function imgBlock(url,alt,position){if(!url)return '<div style="display:grid;width:100%;height:100%;place-items:center;background:linear-gradient(145deg,#182630,#0b1118);color:#71838e;font:10px Arial,sans-serif;letter-spacing:.18em">NO IMAGE</div>';return '<img src="'+esc(url)+'" alt="'+esc(alt)+'" style="display:block;width:100%;height:100%;object-fit:cover;object-position:center '+position+'">';}
+  function field(label,text,bg){return '<div style="padding:13px 14px 13px 40px;border-bottom:1px solid #bdb3a2;background:'+bg+';text-align:left"><div style="margin-bottom:4px;color:#755d4b;font-size:8px;font-weight:bold;letter-spacing:.12em">'+label+'</div><div style="color:#27353c;font-size:11px;line-height:1.8;white-space:pre-wrap">'+esc(text)+'</div></div>';}
+  function html(v){
+    var pic=imageUrl(v.image),tags=v.tags.split(",").map(function(t){return t.trim();}).filter(Boolean).slice(0,8);
+    var chips=tags.map(function(t){return '<span style="padding:2px 7px;border:1px solid #c0b5a3;background:#e6dece;color:#4f5a5c;font-size:8px">'+esc(t)+'</span>';}).join("");
+    var idphoto=pic?'<img src="'+esc(pic)+'" alt="'+esc(v.coverName)+' 신분증 사진" style="display:block;width:100%;height:100%;object-fit:cover;object-position:center 20%">':'<div style="display:grid;width:100%;height:100%;place-items:center;color:#607781;font-size:8px">NO IMAGE</div>';
+    var mainimage=imgBlock(pic,v.name+" 인물 사진","23%");
+    return '<div style="position:relative;left:50%;width:calc(100vw - 16px);min-height:100vh;margin-left:calc(-50vw + 8px);padding:18px 14px 34px;box-sizing:border-box;background:#080d12;color:#e8edf0"><div lang="ko" style="width:100%;max-width:740px;margin:0 auto;padding:18px 14px 34px;box-sizing:border-box;overflow:hidden;background:radial-gradient(ellipse at 50% 0%,#243744 0,#121b23 34%,#080d12 78%);color:#e8edf0;font:14px/1.7 Arial,\'Noto Sans KR\',\'Malgun Gothic\',sans-serif"><div style="display:flex;justify-content:space-between;gap:8px;padding:5px 2px 12px;border-bottom:1px solid #34434c;color:#91a1aa;font-size:9px;letter-spacing:.16em"><span><b style="color:#d4e0e5">BORDERLINE</b> / PERSONNEL ARCHIVE</span><span style="color:#94c6a5">● IDENTITY VERIFIED</span></div><div style="width:min(100%,430px);height:min(74vh,680px);min-height:490px;position:relative;margin:22px auto 0;overflow:hidden;border:1px solid #53636c;background:#101920;box-shadow:0 22px 64px #0009"><div style="display:grid;width:100%;height:100%;place-items:center;background:linear-gradient(145deg,#182630,#0b1118);color:#71838e;font-size:10px;letter-spacing:.18em">'+mainimage+'</div><div style="position:absolute;inset:35% 0 0;background:linear-gradient(transparent,#080d12ed 94%);pointer-events:none"></div><div style="position:absolute;top:14px;left:14px;padding:5px 8px;border:1px solid #a4bac233;background:#0b1119cc;color:#c3d6df;font-size:8px;letter-spacing:.15em">BORDERLINE / PERSONNEL / '+esc(v.case)+'</div><div style="position:absolute;right:15px;bottom:17px;left:17px;z-index:2"><div style="color:#a4c3d0;font-size:9px;letter-spacing:.17em">KOREAN-JAPANESE TASK FORCE · PROSECUTOR</div><div style="position:relative;display:inline-block;margin-top:5px;color:#f1f3f4;font-family:Georgia,\'Noto Serif KR\',serif;font-size:clamp(38px,11vw,58px);line-height:1.1;letter-spacing:.06em">'+esc(v.name)+' <span style="font-size:13px;color:#c2cbd0">'+esc(v.hanja)+'</span><span style="position:absolute;top:4px;left:0;width:100%;height:calc(100% - 8px);display:grid;place-items:center;box-sizing:border-box;transform:rotate(-1deg);border:1px solid #555;background:#020304;color:#df6268;font:900 10px Arial,sans-serif;letter-spacing:.24em">ACCESS DENIED</span></div><div style="margin-top:8px;color:#c1ced5;font-size:11px;letter-spacing:.08em">'+esc(v.profession)+'</div><div style="margin-top:9px;color:#87b99a;font-size:8px;letter-spacing:.14em">● PERSONNEL IMAGE / RESTRICTED</div></div></div><div style="width:min(100%,430px);margin:18px auto 0;color:#91a1aa;font-size:9px;letter-spacing:.16em"><span style="color:#86bdd4">01 / COVER ID CARD</span><span style="float:right">TOUCH TO VERIFY</span></div><details style="width:min(100%,430px);margin:8px auto 0"><summary style="display:block;box-sizing:border-box;width:100%;aspect-ratio:1.586;padding:14px;overflow:hidden;border:1px solid #b6d0dc;border-radius:13px;background:linear-gradient(135deg,#f0f6f8,#cbdce3 55%,#eaf0f2);color:#142b37;box-shadow:0 15px 38px #0006;cursor:pointer"><div style="display:flex;justify-content:space-between;padding:0 0 8px;border-top:5px solid #3284a8;color:#527180;font-size:8px;font-weight:bold;letter-spacing:.12em"><span>REPUBLIC OF KOREA</span><span>ID CARD</span></div><div style="display:flex;align-items:center;gap:12px;height:calc(100% - 30px)"><div style="width:26%;height:100%;overflow:hidden;border:3px solid white;border-radius:4px;background:#bbcbd1;box-shadow:0 3px 9px #223c4b33"><div style="display:grid;width:100%;height:100%;place-items:center;background:#d7e2e6;color:#607781;font-size:8px;letter-spacing:.1em">'+idphoto+'</div></div><div style="flex:1;min-width:0"><div style="color:#69818c;font-size:8px;letter-spacing:.12em">REGISTERED COVER IDENTITY</div><div style="margin:2px 0;color:#102d3b;font-size:clamp(22px,7vw,34px);line-height:1.1;font-weight:bold">'+esc(v.coverName)+'</div><div style="margin-bottom:8px;color:#317697;font-size:9px;font-weight:bold">'+esc(v.coverRole)+' / '+esc(v.company)+'</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:5px 8px;color:#233e4a;font-size:9px"><div style="border-top:1px solid #aabfc8;padding-top:3px"><small style="display:block;color:#69818c;font-size:7px">CALL SIGN</small><b>'+esc(v.callsign)+'</b></div><div style="border-top:1px solid #aabfc8;padding-top:3px"><small style="display:block;color:#69818c;font-size:7px">PLACEMENT</small><b>'+esc(v.placement)+'</b></div><div style="border-top:1px solid #aabfc8;padding-top:3px"><small style="display:block;color:#69818c;font-size:7px">FORMER CAREER</small><b>'+esc(v.formerCareer)+'</b></div><div style="border-top:1px solid #aabfc8;padding-top:3px"><small style="display:block;color:#69818c;font-size:7px">STATUS</small><b>ACTIVE</b></div></div></div></div><div style="display:flex;justify-content:space-between;align-items:center;margin-top:5px;padding-top:5px;border-top:1px solid #aabfc8;color:#607781;font-size:7px;letter-spacing:.1em"><span>'+esc(v.company.toUpperCase())+' · COVER IDENTITY</span><span style="width:58px;height:12px;background:repeating-linear-gradient(90deg,#163d4c 0 2px,transparent 2px 4px,#163d4c 4px 5px,transparent 5px 7px)"></span></div></summary><div style="margin-top:5px;padding:15px;border:1px solid #b6d0dc;border-radius:10px;background:linear-gradient(135deg,#e9f1f4,#c4d8e0 55%,#eff4f5);color:#142b37;box-shadow:0 12px 28px #0005"><div style="color:#527180;font-size:8px;font-weight:bold;letter-spacing:.14em">VERIFIED TRUE IDENTITY · RESTRICTED</div><div style="margin-top:3px;color:#102d3b;font-size:26px;font-weight:bold">'+esc(v.name)+' <span style="font-size:12px;font-weight:normal">'+esc(v.hanja)+'</span></div><div style="color:#317697;font-size:10px;font-weight:bold">'+esc(v.profession)+'</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:12px;color:#233e4a;font-size:10px"><div style="border-top:1px solid #aabfc8;padding-top:4px"><small style="display:block;color:#69818c;font-size:7px">AGE / HEIGHT</small><b>'+esc(v.age)+' / '+esc(v.height)+'</b></div><div style="border-top:1px solid #aabfc8;padding-top:4px"><small style="display:block;color:#69818c;font-size:7px">ASSIGNMENT</small><b>'+esc(v.assignment)+'</b></div><div style="border-top:1px solid #aabfc8;padding-top:4px"><small style="display:block;color:#69818c;font-size:7px">COVER ROLE</small><b>'+esc(v.coverRole)+'</b></div><div style="border-top:1px solid #aabfc8;padding-top:4px"><small style="display:block;color:#69818c;font-size:7px">STATUS</small><b>IDENTITY CONFIRMED</b></div></div><div style="margin-top:10px;padding-top:7px;border-top:1px solid #aabfc8;color:#607781;font-size:7px;letter-spacing:.1em">카드를 닫으면 위장 신분으로 복귀</div></div></details><div style="margin:31px 0 0;padding:17px 14px 19px;border-top:1px solid #593138;border-bottom:1px solid #593138;background:linear-gradient(110deg,#1a1215,#211619 48%,#171216);color:#e8edf0"><div style="color:#ef777e;font-size:9px;letter-spacing:.17em">CLASSIFIED PERSONNEL FILE · LEVEL 04</div><details style="margin-top:14px"><summary style="display:block;width:max-content;max-width:100%;margin:0 auto;padding:9px 20px 8px;transform:rotate(-3deg);border:3px double #dd404a;border-radius:3px;background:#180d10;color:#ed5961;text-align:center;font:900 15px/1.2 Georgia,serif;letter-spacing:.17em;box-shadow:0 5px 15px #0007;cursor:pointer"><span>ACCESS DENIED</span><small style="display:block;margin-top:4px;font:7px Arial,sans-serif;letter-spacing:.15em">기밀파일 · 권한 필요 · 눌러 열람</small></summary><article style="position:relative;box-sizing:border-box;margin:24px 0 4px;padding:0;overflow:hidden;border:1px solid #a99e89;border-radius:2px;background-color:#e9e2d3;background-image:linear-gradient(90deg,transparent 0,transparent 27px,#c36c6a55 28px,transparent 29px),repeating-linear-gradient(0deg,transparent 0 31px,#8797a01c 32px);color:#25313a;text-align:left;box-shadow:0 26px 52px #000a,0 5px 0 #a69b89,0 9px 0 #d2cab9"><div style="padding:20px 15px 15px 40px;background:linear-gradient(90deg,#e4dccb,#f0eadc 70%,#e8e0d0);border-bottom:3px double #9a8c78;text-align:left"><div style="display:flex;justify-content:space-between;gap:8px;max-width:85%;margin-bottom:8px;color:#6d5d4e;font-size:7px;letter-spacing:.1em"><span>수사기밀문서 / 내부 열람용</span><b style="color:#963b3d">대외비 · 무단 복제 금지</b></div><div style="color:#6d5d4e;font-size:8px;letter-spacing:.12em">CASE NO. '+esc(v.case)+'</div><div style="margin-top:4px;color:#1e2a30;font: bold 23px Georgia,\'Noto Serif KR\',serif">'+esc(v.name)+' <span style="font:normal 12px Arial,sans-serif">'+esc(v.hanja)+'</span></div><div style="margin-top:3px;color:#4f5b60;font-size:10px">'+esc(v.profession)+'</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:12px;padding-top:8px;border-top:1px solid #b9ae9c;color:#273840;font-size:9px"><div><small style="display:block;color:#7c7061;font-size:7px">SUBJECT</small><b>'+esc(v.name)+' / 본명</b></div><div><small style="display:block;color:#7c7061;font-size:7px">AGE · HEIGHT</small><b>'+esc(v.age)+' · '+esc(v.height)+'</b></div><div><small style="display:block;color:#7c7061;font-size:7px">CLEARANCE</small><b>LEVEL 04 / 승인</b></div><div><small style="display:block;color:#7c7061;font-size:7px">FILE STATUS</small><b style="color:#963b3d">ACCESS GRANTED</b></div></div><div style="width:max-content;margin:12px 0 0 auto;padding:5px 8px;transform:rotate(-7deg);border:3px double #b73c3e;color:#b73c3e;font:900 8px Arial,sans-serif;letter-spacing:.12em">ACCESS GRANTED</div></div>'+field("01 / APPEARANCE",v.appearance,"#eee8daaa")+field("02 / PERSONALITY",v.personality,"#e5deceaa")+'<div style="padding:13px 14px 13px 40px;border-bottom:1px solid #bdb3a2;background:#eee8daaa;text-align:left"><div style="margin-bottom:4px;color:#755d4b;font-size:8px;font-weight:bold;letter-spacing:.12em">03 / UNDERCOVER IDENTITY</div><div style="color:#27353c;font-size:11px;line-height:1.8;white-space:pre-wrap">'+esc(v.undercover)+'</div></div>'+field("04 / HISTORY",v.history,"#e5deceaa")+field("05 / MANNER & HABITS",v.habits,"#eee8daaa")+field("06 / PERSONAL RECORD",v.personal,"#e5deceaa")+'</article></details></div><div style="display:flex;justify-content:space-between;gap:8px;margin-top:18px;padding:12px 2px 0;border-top:1px solid #34434c;color:#63727a;font-size:7px;letter-spacing:.1em"><span><b style="color:#91aeba">BORDERLINE</b> / PERSONNEL FILE · '+esc(v.case)+'</span><span>ALL ACCESS ATTEMPTS ARE RECORDED</span></div></div></div>';
+  }
+  function values(){var out={};ids.forEach(function(id){out[id]=val(id);});return out;}
+  function update(){var v=values(),fragment=html(v);document.getElementById("output").value=fragment;document.getElementById("preview").srcdoc='<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head><body style="margin:0;background:#080d12">'+fragment+'</body></html>';}
+  var toast=document.getElementById("toast"),toastTimer;
+  function showToast(s){toast.textContent=s;toast.classList.add("show");clearTimeout(toastTimer);toastTimer=setTimeout(function(){toast.classList.remove("show");},1800);}
+  document.getElementById("profileForm").addEventListener("input",update);
+  document.getElementById("copyBtn").addEventListener("click",function(){var ta=document.getElementById("output");ta.select();ta.setSelectionRange(0,ta.value.length);if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(ta.value).then(function(){showToast("HTML을 복사했어요.");}).catch(function(){document.execCommand("copy");showToast("HTML을 복사했어요.");});}else{document.execCommand("copy");showToast("HTML을 복사했어요.");}});
+  document.getElementById("downloadBtn").addEventListener("click",function(){var blob=new Blob([document.getElementById("output").value],{type:"text/html;charset=utf-8"}),url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download=(val("name")||"profile").replace(/[\\/:*?"<>|]/g,"_")+"_profile.html";document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);showToast("HTML 파일을 저장했어요.");});
+  document.getElementById("resetBtn").addEventListener("click",function(){Object.keys(defaults).forEach(function(id){document.getElementById(id).value=defaults[id];});update();showToast("기본값으로 되돌렸어요.");});
+  update();
+})();
+</script>
+</body>
+</html>
