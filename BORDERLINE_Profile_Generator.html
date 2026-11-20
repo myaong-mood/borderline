@@ -151,7 +151,7 @@ input:focus,textarea:focus{border-color:#86bdd4;box-shadow:0 0 0 2px #86bdd420}
 <script>
 (function(){
   var defaults={};
-  document.querySelectorAll("#profileForm input,#profileForm textarea,#profileForm select").forEach(function(el){defaults[el.id]=el.value;});
+  document.querySelectorAll("#profileForm input,#profileForm textarea,#profileForm select").forEach(function(el){if(el.id)defaults[el.id]=el.value;});
   var ids=["name","hanja","age","height","profession","assignment","case","coverName","callsign","coverRole","company","placement","formerCareer","undercover","image","appearance","personality","history","habits","personal","tags"];
   function val(id){var el=document.getElementById(id);return el?el.value.trim():"";}
   function esc(s){return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#39;");}
