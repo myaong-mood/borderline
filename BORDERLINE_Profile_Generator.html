@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#080d12">
-<title>BORDERLINE · Personnel Profile Generator</title>
+<title id="pageTitle">BORDERLINE · Personnel Profile Generator</title>
 <style>
 :root{color-scheme:dark;--bg:#080d12;--panel:#101920;--line:#34434c;--muted:#9aabb3;--text:#e8edf0;--red:#df5962;--blue:#86bdd4;--green:#94c6a5}
 *{box-sizing:border-box}
@@ -15,7 +15,7 @@ button{cursor:pointer}
 .mode-choice{display:flex;align-items:center;gap:8px;padding:9px 11px;border:1px solid var(--line);background:#0b1218;color:var(--text);font-size:12px}.mode-choice input{accent-color:var(--red)}
 .shell{width:min(1480px,100%);margin:auto;padding:24px clamp(16px,3vw,42px) 48px}
 .topline{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:6px 2px 16px;border-bottom:1px solid var(--line);color:var(--muted);font:11px/1.4 "Courier New",monospace;letter-spacing:.14em}
-.brand{color:#dce6ea;font-weight:bold}
+.brand{color:#dce6ea;font-weight:bold}.language-switch{display:flex;align-items:center;gap:6px;color:#62737c}.language-switch button{padding:4px 7px;border:1px solid #34434c;background:#0b1218;color:#a9b7bd;font-size:11px}.language-switch button.active{border-color:#86bdd4;color:#e8edf0}
 .signal{color:var(--green)}
 .intro{display:flex;justify-content:space-between;align-items:end;gap:24px;padding:26px 2px 22px}
 h1{margin:0;color:#f1f3f4;font:700 clamp(25px,4vw,38px)/1.15 Georgia,"Noto Serif KR",serif;letter-spacing:.025em}
@@ -62,88 +62,88 @@ input:focus,textarea:focus{border-color:#86bdd4;box-shadow:0 0 0 2px #86bdd420}
 </head>
 <body>
 <main class="shell">
-  <div class="topline"><span class="brand">BORDERLINE / PERSONNEL ARCHIVE</span><span class="signal">● LOCAL HTML BUILDER</span></div>
+  <div class="topline"><span class="brand">BORDERLINE / PERSONNEL ARCHIVE</span><span class="signal">● LOCAL HTML BUILDER</span><span class="language-switch"><button type="button" id="langKo">한국어</button><span>/</span><button type="button" id="langJa">日本語</button></span></div>
   <header class="intro">
-    <h1>인물 프로필 <span>생성기</span></h1>
-    <p>정보를 입력하면 강묵현 프로필과 같은 인라인 HTML이 만들어집니다. 미리보기에서 확인하고, 생성된 코드를 복사해 사용하세요.</p>
+    <h1 id="pageHeading">인물 프로필 <span>생성기</span></h1>
+    <p id="pageIntro">정보를 입력하면 BORDERLINE 프로필 레이아웃에 맞춰 HTML이 만들어집니다. 미리보기에서 확인하고 생성된 코드를 복사해 사용하세요.</p>
   </header>
   <div class="layout">
-    <section class="panel" aria-label="프로필 입력">
-      <div class="panel-head"><h2>01 / PROFILE INPUT</h2><small>입력 즉시 반영</small></div>
+    <section class="panel" id="inputPanel" aria-label="프로필 입력">
+      <div class="panel-head"><h2 id="inputTitle">01 / PROFILE INPUT</h2><small id="inputHint">입력 즉시 반영</small></div>
       <form id="profileForm" class="form" autocomplete="off">
         <fieldset>
-          <legend>PROFILE TYPE / 프로필 유형</legend>
+          <legend data-i18n="typeLegend">PROFILE TYPE / 프로필 유형</legend>
           <div class="grid">
-            <label class="mode-choice"><input type="radio" name="profileMode" value="investigator" checked> 수사관 프로필</label>
-            <label class="mode-choice"><input type="radio" name="profileMode" value="organization"> 조직원 프로필</label>
+            <label class="mode-choice"><input type="radio" name="profileMode" value="investigator" checked><span data-i18n="investigatorMode">수사관 프로필</span></label>
+            <label class="mode-choice"><input type="radio" name="profileMode" value="organization"><span data-i18n="organizationMode">조직원 프로필</span></label>
           </div>
-          <p class="hint">조직원 모드에서는 위장 신분 항목과 위장 신분 카드가 생성되지 않습니다.</p>
+          <p class="hint" data-i18n="modeHint">조직원 모드에서는 위장 신분 항목과 위장 신분 카드가 생성되지 않습니다.</p>
         </fieldset>
         <fieldset>
-          <legend>IDENTITY / 신원</legend>
+          <legend data-i18n="identityLegend">IDENTITY / 신원</legend>
           <div class="grid">
-            <div class="field"><label for="name">이름</label><input id="name" value="강묵현"></div>
-            <div class="field"><label for="hanja">한자·외국어 표기</label><input id="hanja" value="姜默賢"></div>
-            <div class="field"><label for="age">나이</label><input id="age" value="38세"></div>
-            <div class="field"><label for="height">키</label><input id="height" value="183cm"></div>
-            <div class="field full"><label for="profession">직업 / 소속</label><input id="profession" value="대한민국 검사 · 한일 공조 수사 잠입 요원"></div>
-            <div class="field full"><label for="assignment">담당·사건</label><input id="assignment" value="한일 밀거래 · 자금 흐름 · 기업과 범죄조직의 유착 추적"></div>
-            <div class="field full"><label for="case">파일 번호 / 상단 분류</label><input id="case" value="K-INV-01 / SEOUL JOINT TASK FORCE"></div>
+            <div class="field"><label for="name" data-i18n="nameLabel">이름</label><input id="name" value="강묵현"></div>
+            <div class="field"><label for="hanja" data-i18n="hanjaLabel">한자·외국어 표기</label><input id="hanja" value="姜默賢"></div>
+            <div class="field"><label for="age" data-i18n="ageLabel">나이</label><input id="age" value="38세"></div>
+            <div class="field"><label for="height" data-i18n="heightLabel">키</label><input id="height" value="183cm"></div>
+            <div class="field full"><label for="profession" data-i18n="professionLabel">직업 / 소속</label><input id="profession" value="대한민국 검사 · 한일 공조 수사 잠입 요원"></div>
+            <div class="field full"><label for="assignment" data-i18n="assignmentLabel">담당·사건</label><input id="assignment" value="한일 밀거래 · 자금 흐름 · 기업과 범죄조직의 유착 추적"></div>
+            <div class="field full"><label for="case" data-i18n="caseLabel">파일 번호 / 상단 분류</label><input id="case" value="K-INV-01 / SEOUL JOINT TASK FORCE"></div>
           </div>
         </fieldset>
         <fieldset id="organizationFields" style="display:none">
-          <legend>ORGANIZATION / 조직 소속</legend>
+          <legend data-i18n="orgLegend">ORGANIZATION / 조직 소속</legend>
           <div class="grid">
-            <div class="field"><label for="orgType">유형</label><select id="orgType"><option>한국 조폭</option><option>일본 야쿠자</option></select></div>
-            <div class="field"><label for="orgName">조직명</label><input id="orgName" value="해진회"></div>
-            <div class="field"><label for="orgRank">직책·직급</label><input id="orgRank" value="현장 실무 책임자"></div>
-            <div class="field"><label for="orgRegion">활동 지역</label><input id="orgRegion" value="부산 · 부산항 일대"></div>
-            <div class="field full"><label for="orgRole">조직 내 역할·담당</label><textarea id="orgRole">현장 인력과 화물 인수·이동을 관리하고 돌발 상황을 수습한다.</textarea></div>
-            <div class="field full"><label for="orgPersonality">성격·조직 내 태도</label><textarea id="orgPersonality">조직의 위계와 실리를 중시한다. 신뢰는 행동으로 확인하며, 불필요한 충돌은 피하되 맡은 일은 끝까지 처리한다.</textarea></div>
-            <div class="field full"><label for="orgHistory">과거·조직 가입 경위</label><textarea id="orgHistory">조직에 들어오기 전의 이력과 가입 경위, 현재 조직에서 맡은 자리를 입력한다.</textarea></div>
-            <div class="field full"><label for="orgHabits">말투·습관</label><textarea id="orgHabits">상대와 조직 내 서열에 따라 말투를 조절한다. 위기 상황에서는 주변의 반응과 현장 상황부터 살핀다.</textarea></div>
+            <div class="field"><label for="orgType" data-i18n="orgTypeLabel">유형</label><select id="orgType"><option value="한국 조폭" data-i18n="koreanGangOption">한국 조폭</option><option value="일본 야쿠자" data-i18n="japaneseYakuzaOption">일본 야쿠자</option></select></div>
+            <div class="field"><label for="orgName" data-i18n="orgNameLabel">조직명</label><input id="orgName" value="해진회"></div>
+            <div class="field"><label for="orgRank" data-i18n="orgRankLabel">직책·직급</label><input id="orgRank" value="현장 실무 책임자"></div>
+            <div class="field"><label for="orgRegion" data-i18n="orgRegionLabel">활동 지역</label><input id="orgRegion" value="부산 · 부산항 일대"></div>
+            <div class="field full"><label for="orgRole" data-i18n="orgRoleLabel">조직 내 역할·담당</label><textarea id="orgRole">현장 인력과 화물 인수·이동을 관리하고 돌발 상황을 수습한다.</textarea></div>
+            <div class="field full"><label for="orgPersonality" data-i18n="orgPersonalityLabel">성격·조직 내 태도</label><textarea id="orgPersonality">조직의 위계와 실리를 중시한다. 신뢰는 행동으로 확인하며, 불필요한 충돌은 피하되 맡은 일은 끝까지 처리한다.</textarea></div>
+            <div class="field full"><label for="orgHistory" data-i18n="orgHistoryLabel">과거·조직 가입 경위</label><textarea id="orgHistory">조직에 들어오기 전의 이력과 가입 경위, 현재 조직에서 맡은 자리를 입력한다.</textarea></div>
+            <div class="field full"><label for="orgHabits" data-i18n="orgHabitsLabel">말투·습관</label><textarea id="orgHabits">상대와 조직 내 서열에 따라 말투를 조절한다. 위기 상황에서는 주변의 반응과 현장 상황부터 살핀다.</textarea></div>
           </div>
         </fieldset>
         <fieldset id="coverFields">
-          <legend>COVER ID / 위장 신분</legend>
+          <legend data-i18n="coverLegend">COVER ID / 위장 신분</legend>
           <div class="grid">
-            <div class="field"><label for="coverName">위장 이름</label><input id="coverName" value="강서준"></div>
-            <div class="field"><label for="callsign">호칭</label><input id="callsign" value="서준 · 준"></div>
-            <div class="field"><label for="coverRole">대외 직무</label><input id="coverRole" value="회계 · 세무 실무"></div>
-            <div class="field"><label for="company">회사·조직</label><input id="company" value="해담로지스"></div>
-            <div class="field"><label for="placement">잠입 기간</label><input id="placement" value="잠입 6개월"></div>
-            <div class="field"><label for="formerCareer">이전 이력</label><input id="formerCareer" value="회계·세무"></div>
-            <div class="field full"><label for="undercover">잠입 업무·위장 설정</label><textarea id="undercover">장부와 정산, 세무 자료를 다루며 조직의 거래 구조와 자금 흐름을 살핀다. 검사라는 본래 신분과 실제 임무는 비공개.</textarea></div>
+            <div class="field"><label for="coverName" data-i18n="coverNameLabel">위장 이름</label><input id="coverName" value="강서준"></div>
+            <div class="field"><label for="callsign" data-i18n="callsignLabel">호칭</label><input id="callsign" value="서준 · 준"></div>
+            <div class="field"><label for="coverRole" data-i18n="coverRoleLabel">대외 직무</label><input id="coverRole" value="회계 · 세무 실무"></div>
+            <div class="field"><label for="company" data-i18n="companyLabel">회사·조직</label><input id="company" value="해담로지스"></div>
+            <div class="field"><label for="placement" data-i18n="placementLabel">잠입 기간</label><input id="placement" value="잠입 6개월"></div>
+            <div class="field"><label for="formerCareer" data-i18n="formerCareerLabel">이전 이력</label><input id="formerCareer" value="회계·세무"></div>
+            <div class="field full"><label for="undercover" data-i18n="undercoverLabel">잠입 업무·위장 설정</label><textarea id="undercover">장부와 정산, 세무 자료를 다루며 조직의 거래 구조와 자금 흐름을 살핀다. 검사라는 본래 신분과 실제 임무는 비공개.</textarea></div>
           </div>
         </fieldset>
         <fieldset>
-          <legend>APPEARANCE / 인상</legend>
+          <legend data-i18n="appearanceLegend">APPEARANCE / 인상</legend>
           <div class="grid">
-            <div class="field full"><label for="image">인물 이미지 주소</label><input id="image" value="https://raw.githubusercontent.com/myaong-mood/borderline/main/IMG_6246.jpeg" placeholder="https://.../image.jpg"><span class="hint">공개 이미지 주소 또는 프로필 HTML에서 접근 가능한 상대 경로</span><button type="button" id="nameToggle" class="secondary" aria-pressed="true" style="margin-top:8px">이름 가리기</button></div>
-            <div class="field full"><label for="appearance">외형 설명</label><textarea id="appearance">검은 머리와 짙은 회색 눈. 마른 듯 보이지만 군살 없이 단단하게 잡힌 체격과 긴 팔다리를 지녔다. 날카로운 눈매와 선이 분명한 턱이 인상을 단단하게 만든다. 어두운 정장과 다림질된 셔츠를 즐겨 입는다.</textarea></div>
+            <div class="field full"><label for="image" data-i18n="imageLabel">인물 이미지 주소</label><input id="image" value="https://raw.githubusercontent.com/myaong-mood/borderline/main/IMG_6246.jpeg" placeholder="https://.../image.jpg"><span class="hint" data-i18n="imageHint">공개 이미지 주소 또는 프로필 HTML에서 접근 가능한 상대 경로</span><button type="button" id="nameToggle" class="secondary" aria-pressed="true" style="margin-top:8px">이름 가리기</button></div>
+            <div class="field full"><label for="appearance" data-i18n="appearanceLabel">외형 설명</label><textarea id="appearance">검은 머리와 짙은 회색 눈. 마른 듯 보이지만 군살 없이 단단하게 잡힌 체격과 긴 팔다리를 지녔다. 날카로운 눈매와 선이 분명한 턱이 인상을 단단하게 만든다. 어두운 정장과 다림질된 셔츠를 즐겨 입는다.</textarea></div>
           </div>
         </fieldset>
         <fieldset>
-          <legend>RESTRICTED FILE / 상세 기록</legend>
-          <div class="field"><label for="personality">성격</label><textarea id="personality">까다롭고 빈틈없는 완벽주의자. 위계나 명성보다 증거를 신뢰하며, 납득되지 않는 지시에는 상급자에게도 이유를 묻는다. 은폐와 책임 전가를 싫어하고 자신의 실수는 인정한다. 맡은 일은 끝까지 책임진다.</textarea></div>
-          <div class="field"><label for="history">과거</label><textarea id="history">고등학생 시절 아버지가 산업 현장에서 다쳤다. 회사는 증거를 감추고 목격자들을 압박했으며, 부실한 조사 끝에 산업재해는 인정받지 못했다. 그 일은 강묵현이 검사가 되기로 결심한 계기가 됐다. 당시의 자료를 지금도 보관하고 있다.</textarea></div>
-          <div class="field"><label for="habits">말투·수사·습관</label><textarea id="habits">여덟 살 어린 여동생을 제외하면 누구에게나 존댓말을 쓴다. 질문은 짧고 정확하며, 정중한 말투로 뼈 있는 말을 건넨다. 화가 날수록 목소리가 낮고 느려진다. 진술과 기록을 교차 확인하며, 최초 증거와 달라진 진술을 특히 꼼꼼하게 살핀다. 예상하지 못한 칭찬이나 친절에는 쉽게 얼굴이 붉어진다. 애정은 챙겨 묻고, 먹을 것을 챙기고, 귀가를 확인하는 방식으로 드러낸다.</textarea></div>
-          <div class="field"><label for="personal">기타·가족·개인 기록</label><textarea id="personal">혼자 살며 필요한 때만 술을 마시고 담배는 피우지 않는다. 책상 위 물건은 정해진 자리에 둔다. 여동생 앞에서는 잔소리가 늘고 사소한 일로 투닥거리기도 한다. 로스쿨 특강에 나간 뒤 ‘강 교수님’이라는 별명을 얻었지만 본인은 그 호칭을 달가워하지 않는다.</textarea></div>
-          <div class="field"><label for="tags">키워드 태그 (쉼표로 구분)</label><input id="tags" value="완벽주의, 증거 우선, 원칙주의, 책임감"></div>
+          <legend data-i18n="detailsLegend">RESTRICTED FILE / 상세 기록</legend>
+          <div class="field"><label for="personality" data-i18n="personalityLabel">성격</label><textarea id="personality">까다롭고 빈틈없는 완벽주의자. 위계나 명성보다 증거를 신뢰하며, 납득되지 않는 지시에는 상급자에게도 이유를 묻는다. 은폐와 책임 전가를 싫어하고 자신의 실수는 인정한다. 맡은 일은 끝까지 책임진다.</textarea></div>
+          <div class="field"><label for="history" data-i18n="historyLabel">과거</label><textarea id="history">고등학생 시절 아버지가 산업 현장에서 다쳤다. 회사는 증거를 감추고 목격자들을 압박했으며, 부실한 조사 끝에 산업재해는 인정받지 못했다. 그 일은 강묵현이 검사가 되기로 결심한 계기가 됐다. 당시의 자료를 지금도 보관하고 있다.</textarea></div>
+          <div class="field"><label for="habits" data-i18n="habitsLabel">말투·수사·습관</label><textarea id="habits">여덟 살 어린 여동생을 제외하면 누구에게나 존댓말을 쓴다. 질문은 짧고 정확하며, 정중한 말투로 뼈 있는 말을 건넨다. 화가 날수록 목소리가 낮고 느려진다. 진술과 기록을 교차 확인하며, 최초 증거와 달라진 진술을 특히 꼼꼼하게 살핀다. 예상하지 못한 칭찬이나 친절에는 쉽게 얼굴이 붉어진다. 애정은 챙겨 묻고, 먹을 것을 챙기고, 귀가를 확인하는 방식으로 드러낸다.</textarea></div>
+          <div class="field"><label for="personal" data-i18n="personalLabel">기타·가족·개인 기록</label><textarea id="personal">혼자 살며 필요한 때만 술을 마시고 담배는 피우지 않는다. 책상 위 물건은 정해진 자리에 둔다. 여동생 앞에서는 잔소리가 늘고 사소한 일로 투닥거리기도 한다. 로스쿨 특강에 나간 뒤 ‘강 교수님’이라는 별명을 얻었지만 본인은 그 호칭을 달가워하지 않는다.</textarea></div>
+          <div class="field"><label for="tags" data-i18n="tagsLabel">키워드 태그 (쉼표로 구분)</label><input id="tags" value="완벽주의, 증거 우선, 원칙주의, 책임감"></div>
         </fieldset>
       </form>
       <div class="actions">
-        <button class="btn primary" id="copyBtn" type="button">HTML 복사</button>
-        <button class="btn" id="downloadBtn" type="button">.html 저장</button>
-        <button class="btn quiet" id="resetBtn" type="button">기본값 복원</button>
+        <button class="btn primary" id="copyBtn" type="button" data-i18n="copyButton">HTML 복사</button>
+        <button class="btn" id="downloadBtn" type="button" data-i18n="saveButton">.html 저장</button>
+        <button class="btn quiet" id="resetBtn" type="button" data-i18n="resetButton">기본값 복원</button>
       </div>
     </section>
-    <section class="panel preview-panel" aria-label="미리보기 및 HTML">
-      <div class="panel-head"><h2>02 / LIVE PREVIEW</h2><small>원본 BORDERLINE 레이아웃</small></div>
+    <section class="panel preview-panel" id="previewPanel" aria-label="미리보기 및 HTML">
+      <div class="panel-head"><h2 id="previewTitle">02 / LIVE PREVIEW</h2><small id="previewHint">원본 BORDERLINE 레이아웃</small></div>
       <div class="preview-wrap"><iframe class="preview-frame" id="preview" title="생성된 프로필 미리보기"></iframe></div>
-      <div class="code-head"><strong>03 / GENERATED INLINE HTML</strong><span>전체 선택 후 직접 수정도 가능합니다.</span></div>
+      <div class="code-head"><strong id="codeTitle">03 / GENERATED INLINE HTML</strong><span id="codeHint">전체 선택 후 직접 수정도 가능합니다.</span></div>
       <div class="code-wrap"><textarea id="output" spellcheck="false" aria-label="생성된 HTML 코드"></textarea></div>
-      <div class="note">생성 코드는 스타일을 포함한 HTML 조각입니다. 이미지 주소는 공유할 곳에서도 열리는 공개 주소를 사용하세요.</div>
+      <div class="note" id="pageNote">생성 코드는 스타일을 포함한 HTML 조각입니다. 이미지 주소는 공유할 곳에서도 열리는 공개 주소를 사용하세요.</div>
     </section>
   </div>
 </main>
